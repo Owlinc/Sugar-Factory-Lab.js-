@@ -31,65 +31,6 @@
       "_tab": "Content",
       "timeout": "500"
     },
-    "2": {
-      "id": "2",
-      "type": "lab.html.Screen",
-      "files": [],
-      "responses": [
-        {
-          "label": "",
-          "event": "",
-          "target": "",
-          "filter": ""
-        }
-      ],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [],
-      "title": "↻ Загрузчик",
-      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
-      "_tab": "Behavior",
-      "timeout": "500"
-    },
-    "3": {
-      "id": "3",
-      "type": "lab.html.Screen",
-      "files": [],
-      "responses": [
-        {
-          "label": "",
-          "event": "",
-          "target": "",
-          "filter": ""
-        }
-      ],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [
-        {
-          "title": "",
-          "message": "run",
-          "code": ""
-        }
-      ],
-      "title": "↻ Загрузчик",
-      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
-      "_tab": "Behavior",
-      "timeout": "500",
-      "skipCondition": "",
-      "skip": false,
-      "tardy": false
-    },
     "4": {
       "id": "4",
       "type": "lab.html.Screen",
@@ -337,6 +278,58 @@
       "timeout": "500",
       "skipCondition": ""
     },
+    "12": {
+      "id": "12",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "title": "",
+          "content": "Вы только что завершили обучающий этап. В ходе этого этапа вы увидели то, как происходит изменение производительности при управлении фабрикой. Это изменение происходит в соотвествии с определенным правилом. Сейчас ваша задача — оценить то, насколько вы усвоили это правило. ㅤ                                    "
+        },
+        {
+          "required": true,
+          "type": "slider",
+          "attributes": {
+            "step": "10",
+            "min": "Совершенно непонятно",
+            "max": "Всё предельно понятно "
+          },
+          "name": "rule_understanding",
+          "label": "Понимание правила",
+          "help": "Ничего непонятно                  Всё предельно понятно"
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Далее →",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Проверка понимания правила",
+      "_tab": "Content",
+      "width": "m"
+    },
     "14": {
       "id": "14",
       "type": "lab.flow.Sequence",
@@ -369,7 +362,212 @@
       ],
       "title": "Компоненты серии",
       "_tab": "Behavior",
-      "_collapsed": false
+      "_collapsed": true
+    },
+    "15": {
+      "id": "15",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "content": "<p style=\"text-align: center;\"><span style=\"color: #808080; font-size: 17px\">Исследовательский проект</span></p>\n<p style=\"text-align: center;\"><span style=\"color: #808080; font-size: 17px\">\"Как формируется доверие в процессе офлайн- и онлайн-общения? Создание и проведение психологического эксперимента\"</span></p>\n<h4 style=\"text-align: center;\"></h4>\n<p></p>\n<h4 style=\"text-align: center; font-size: 28px\"><strong>Информированное согласие</strong></h4>\n<p>&nbsp;</p>\n<p _msthash=\"170589\" _msttexthash=\"265426213\">Здравствуйте! Спасибо, что проявили интерес к нашему исследованию. Пожалуйста, отключите звук на телефоне и закройте лишние вкладки в браузере, чтобы Вас ничего не отвлекало. Прохождение эксперимента займет около 30 минут.</p>\n<p>&nbsp;</p>\n<p _msthash=\"170590\" _msttexthash=\"44362448\">Прежде чем Вы примете решение об участии, ознакомьтесь, пожалуйста, с информацией ниже.</p>\n<p>&nbsp;</p>\n<p><strong _msthash=\"170591\" _msttexthash=\"6250517\">Организаторы исследования</strong></p>\n<p _msthash=\"170592\" _msttexthash=\"225876157\">Данное исследование проводится группой студентов НИУ ВШЭ в рамках исследовательского проекта. Научный руководитель &ndash; Тихонов Р.В.,<span style=\"color: #000000;\"> преподаватель НИУ ВШЭ в Санкт-Петербурге, департамент социологии. </span></p>\n<p>&nbsp;</p>\n<p><strong _msthash=\"170593\" _msttexthash=\"5458830\">Кто может принять участие?</strong></p>\n<p _msthash=\"170594\" _msttexthash=\"37985584\">Принять участие в исследовании могут носители русского языка в возрасте от 18 лет.</p>\n<p>&nbsp;</p>\n<p><strong _msthash=\"170595\" _msttexthash=\"8596341\">Как будет проходить исследование?</strong></p>\n<p>Исследование проводится онлайн без видеосвязи на специальной платформе \"...\". Для участия необходим <span style=\"color: #333399;\"><strong>персональный компьютер/ноутбук, оснащенный клавиатурой и мышью/тачпадом, а также микрофоном и аудио гарнитурой. </strong></span>Прохождение исследования займет около <span style=\"color: #333399;\"><strong>30 минут</strong>.</span> Перед началом эксперимента участникам будет предложено заполнить короткую анкету, касающуюся их возраста и пола. В ходе эксперимента необходимо управлять сахарной фабрикой для поддержания целевого объема производства самостоятельно, а затем вместе с напарником. Эксперимент рекомендуется проходить в спокойных условиях, без посторонних раздражителей.</p>\n<p>&nbsp;</p>\n<p><strong _msthash=\"170597\" _msttexthash=\"3283501\">Цель исследования:</strong></p>\n<p _msthash=\"170598\" _msttexthash=\"262325687\">Выяснить, как формируется доверие к напарнику при совместном принятии решений. Также планируется оценить влияние формата общения (онлайн или офлайн) на склонность учитывать информацию, полученную от другого человека.</p>\n<p>&nbsp;</p>\n<p><strong _msthash=\"170599\" _msttexthash=\"5046405\">Добровольность участия</strong></p>\n<p _msthash=\"170600\" _msttexthash=\"127496681\">Участие в исследовании является добровольным. Вы можете отказаться от участия сейчас, а также прекратить участие в любой момент без объяснения причин.</p>\n<p>&nbsp;</p>\n<p><strong _msthash=\"170601\" _msttexthash=\"3938324\">Конфиденциальность</strong></p>\n<p _msthash=\"170602\" _msttexthash=\"101288967\">Все данные, собранные в ходе исследования, будут доступны только исследовательской группе и будут представляться в обобщенном виде.</p>\n<p>&nbsp;</p>\n<p><strong _msthash=\"170603\" _msttexthash=\"4656743\">Контактная информация</strong></p>\n<p _msthash=\"170604\" _msttexthash=\"75011313\">Если у вас возникнут вопросы, пожелания или предложения, вы можете обращаться по электронной почте ... (Тихонов Роман).</p>\n<p _msthash=\"170604\" _msttexthash=\"75011313\"></p>\n<p><span style=\"color: #000080;\">&nbsp;</span></p>"
+        },
+        {
+          "required": true,
+          "type": "checkbox",
+          "label": "<div _msthash=\"170606\" _msttexthash=\"29039712\"><span style=\"color: #333399;\"><strong>Подтверждение согласия на участие</strong></span></div>",
+          "options": [
+            {
+              "label": "Мне 18 и более лет",
+              "coding": "age_consent"
+            },
+            {
+              "label": "Я ознакомился/-лась с информацией выше и понял/-а ее",
+              "coding": "comprehension_consent"
+            },
+            {
+              "label": "Я даю согласие на участие в исследовании",
+              "coding": "participation_consent"
+            },
+            {
+              "label": "Я оставляю за собой право прекратить участие без объяснения причин",
+              "coding": "exit_consent"
+            }
+          ],
+          "help": "Для подтверждения участия необходимо отметить галочкой все пункты",
+          "name": "subject.consent"
+        },
+        {
+          "required": true,
+          "type": "text",
+          "content": "<p>&nbsp;</p>\n<p _msthash=\"170606\" _msttexthash=\"29039712\"><span style=\"color: #333399;\"><strong>Если вы готовы продолжить, нажмите <kbd>Далее&rarr;</kbd></strong></span></p>"
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Далее →",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "Согласие",
+      "width": "l",
+      "_tab": "Content"
+    },
+    "16": {
+      "id": "16",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "",
+      "skip": false,
+      "tardy": false
+    },
+    "17": {
+      "id": "17",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "content": "<h4 style=\"text-align: left;\">Благодарим Вас за участие в эксперименте! Надеемся, что Вам понравилось и Вы приобрели полезный опыт в совместной работе!</h4>\n<h4 style=\"text-align: left;\"><strong></strong></h4>\n<h4 style=\"text-align: left;\"><strong></strong></h4>\n<p></p>"
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Завершить →",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Прощание"
+    },
+    "18": {
+      "id": "18",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "",
+      "skip": false,
+      "tardy": false
+    },
+    "19": {
+      "id": "19",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "content": "<h4 style=\"text-align: left;\"><strong>Обучающий этап</strong></h4>\n<p>Вы управляете сахарной фабрикой: следите за количеством произведенного сахара и устанавливаете количество рабочих на каждый день. <span style=\"color: #333399;\"><strong>Ваша главная задача &ndash; достичь и поддерживать целевой объем производства от 8000 до 10.000 тонн.</strong></span> Начальный уровень производства &ndash; 6000 тонн, а количество рабочих &ndash; 600 человек. В одном испытании можно нанять от 100 до 1200 рабочих. У Вас будет 20 попыток, чтобы прийти к ожидаемому уровню производства, а после поддерживать его в целевом диапазоне до конца серии.</p>\n<p>Нажмите \"Продолжить\", чтобы начать</p>"
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Продолжить→",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Инструкция к обучающему этапу"
     },
     "20": {
       "id": "20",
@@ -404,6 +602,175 @@
       ],
       "title": "Проба фабрики",
       "_tab": "Scripts"
+    },
+    "21": {
+      "id": "21",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "",
+      "skip": false,
+      "tardy": false
+    },
+    "22": {
+      "id": "22",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "19",
+        "74",
+        "32",
+        "63",
+        "44"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "ОБУЧАЮЩИЙ ЭТАП",
+      "_collapsed": true
+    },
+    "24": {
+      "id": "24",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": ""
+    },
+    "25": {
+      "id": "25",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "content": "<h4 style=\"text-align: left;\"><strong>Спасибо за проделанную работу! </strong></h4>\n<p style=\"text-align: left;\">Последним этапом будет небольшое интервью о впечатлениях эксперимента и проверка полученного опыта.</p>\n<p style=\"text-align: left;\"></p>\n<p style=\"text-align: left;\">Нажмите &laquo;Продолжить&raquo;&nbsp;</p>\n<h4 style=\"text-align: left;\"></h4>\n<h4 style=\"text-align: left;\"></h4>\n<h4 style=\"text-align: left;\"></h4>\n<p></p>"
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Продолжить→",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Мост к интервью"
+    },
+    "26": {
+      "id": "26",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "73",
+        "11",
+        "68",
+        "72",
+        "52"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "ЭТАП С НАПАРНИКОМ",
+      "_collapsed": true
     },
     "28": {
       "id": "28",
@@ -656,8 +1023,8 @@
           "code": ""
         }
       ],
-      "title": "ОБУЧАЮЩИЙ ЭТАП (основная часть)",
-      "_collapsed": true,
+      "title": "Основная часть задания",
+      "_collapsed": false,
       "_tab": "Content"
     },
     "33": {
@@ -697,6 +1064,80 @@
       "_collapsed": false,
       "_tab": "Scripts"
     },
+    "34": {
+      "id": "34",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "title": "",
+          "content": "<p style=\"text-align: center;\"><strong><span style=\"color: #333399;\">Сведения об участнике</span></strong></p>\n<p><span style=\"color: #333333;\">Пожалуйста, укажите Ваши <strong>возраст </strong>и&nbsp;<strong>пол</strong>. Эти данные нужны исключительно для удобства обработки. Все результаты анонимны.</span></p>"
+        },
+        {
+          "required": true,
+          "type": "input",
+          "label": "Ваш возраст",
+          "help": "",
+          "attributes": {
+            "type": "number",
+            "min": "18",
+            "max": "100"
+          },
+          "name": "subject.age"
+        },
+        {
+          "required": true,
+          "type": "radio",
+          "label": "Ваш пол",
+          "options": [
+            {
+              "label": "Женский",
+              "coding": "f"
+            },
+            {
+              "label": "Мужской",
+              "coding": "m"
+            }
+          ],
+          "name": "subject.sex"
+        },
+        {
+          "required": true,
+          "type": "text",
+          "content": "<p _msthash=\"170606\" _msttexthash=\"29039712\"><span style=\"color: #333399;\"><strong>Если вы готовы продолжить, нажмите \"Далее\"</strong></span></p>"
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Далее→",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Анкета",
+      "_tab": "Content",
+      "skip": false,
+      "width": "l"
+    },
     "35": {
       "id": "35",
       "type": "lab.html.Form",
@@ -731,33 +1172,6 @@
       "title": "Результаты",
       "_tab": "Scripts",
       "timeout": ""
-    },
-    "36": {
-      "id": "36",
-      "type": "lab.html.Screen",
-      "files": [],
-      "responses": [
-        {
-          "label": "",
-          "event": "",
-          "target": "",
-          "filter": ""
-        }
-      ],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [],
-      "title": "↻ Загрузчик",
-      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
-      "_tab": "Behavior",
-      "timeout": "500",
-      "skipCondition": "${ study.parameters.global_productivity > 0.7 }",
-      "tardy": true
     },
     "37": {
       "id": "37",
@@ -913,8 +1327,10 @@
       "id": "42",
       "type": "lab.flow.Sequence",
       "children": [
+        "71",
+        "16",
         "4",
-        "43",
+        "70",
         "9",
         "35"
       ],
@@ -986,7 +1402,7 @@
       "type": "lab.flow.Sequence",
       "children": [
         "45",
-        "49",
+        "65",
         "46",
         "50"
       ],
@@ -1013,8 +1429,8 @@
           "code": ""
         }
       ],
-      "title": "ОБУЧАЮЩИЙ ЭТАП (дополнительная часть)",
-      "_collapsed": true,
+      "title": "Дополнительная часть заданий",
+      "_collapsed": false,
       "_tab": "Behavior",
       "skipCondition": "${ study.parameters.global_productivity > 0.7 } ",
       "skip": false,
@@ -1186,7 +1602,7 @@
       "type": "lab.flow.Sequence",
       "children": [
         "48",
-        "2"
+        "49"
       ],
       "files": [],
       "responses": [
@@ -1271,7 +1687,7 @@
       "messageHandlers": [],
       "title": "↻ Загрузчик",
       "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
-      "_tab": "Behavior",
+      "_tab": "Content",
       "timeout": "500"
     },
     "50": {
@@ -1388,7 +1804,7 @@
           "code": ""
         }
       ],
-      "title": "ЭТАП С НАПАРНИКОМ",
+      "title": "Задания",
       "_collapsed": true,
       "_tab": "Content"
     },
@@ -1811,18 +2227,434 @@
       "timeout": "10500",
       "tardy": false
     },
+    "63": {
+      "id": "63",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "${ study.parameters.global_productivity > 0.7 } ",
+      "skip": false,
+      "tardy": true
+    },
+    "64": {
+      "id": "64",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "",
+      "skip": false,
+      "tardy": false
+    },
+    "65": {
+      "id": "65",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "",
+      "skip": false,
+      "tardy": false
+    },
+    "66": {
+      "id": "66",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "15",
+        "21",
+        "34"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "ВСТУПЛЕНИЕ",
+      "_collapsed": true
+    },
+    "67": {
+      "id": "67",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "",
+      "skip": false,
+      "tardy": false
+    },
+    "68": {
+      "id": "68",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "content": "<h4 style=\"text-align: left;\"><strong>Этап 2</strong></h4>\n<p><span style=\"color: #333399;\"><strong>На этом этапе Ваша главная задача остается прежней&nbsp;&ndash; достичь и поддерживать целевой объем производства от 8000 до 10.000 тонн.</strong></span> Начальный уровень производства &ndash; 6000 тонн, а количество рабочих &ndash; 600 человек. В одном испытании можно нанять от 100 до 1200 рабочих. У Вас будет 20 попыток, чтобы прийти к ожидаемому уровню производства, а после поддерживать его в целевом диапазоне до конца серии.</p>\n<p></p>\n<p>Сейчас Вы будете выполнять задачу вместе с напарником. У Вас будет возможность демонстрировать экран и общаться друг с другом на платформе &nbsp;&laquo;&hellip;&raquo; в чате или голосом. Проверьте, пожалуйста, звук и наушники, чтобы приступить к заданию.</p>\n<p>Нажмите \"Продолжить\"</p>"
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Продолжить →",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Инструкция для этапа с напарником"
+    },
+    "69": {
+      "id": "69",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "",
+      "skip": false,
+      "tardy": false
+    },
+    "70": {
+      "id": "70",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "",
+      "skip": false,
+      "tardy": false
+    },
+    "71": {
+      "id": "71",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "content": "<h4 style=\"text-align: left;\"><strong>Вы отлично справились!</strong></h4>\n<p style=\"text-align: left;\">Теперь заполните ответы на следующей странице.</p>\n<p style=\"text-align: left;\"></p>\n<p style=\"text-align: left;\">Нажмите \"Продолжить\"</p>\n<h4 style=\"text-align: left;\"></h4>\n<h4 style=\"text-align: left;\"><strong></strong></h4>\n<h4 style=\"text-align: left;\"><strong></strong></h4>\n<p></p>"
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Продолжить →",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Мост к финальному этапу",
+      "_tab": "Content"
+    },
+    "72": {
+      "id": "72",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": ""
+    },
+    "73": {
+      "id": "73",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "content": "<h4 style=\"text-align: left;\"><strong>Вы прошли обучающий этап! </strong></h4>\n<p style=\"text-align: left;\">Теперь перейдем к основной части эксперимента.</p>\n<p style=\"text-align: left;\"></p>\n<p style=\"text-align: left;\">Нажмите &laquo;Продолжить&raquo;&nbsp;</p>"
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Продолжить →",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Мост к этапу с напарником"
+    },
+    "74": {
+      "id": "74",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "",
+      "skip": false,
+      "tardy": false
+    },
     "root": {
       "id": "root",
       "title": "root",
       "type": "lab.flow.Sequence",
       "children": [
-        "32",
-        "36",
-        "44",
-        "11",
-        "52",
-        "3",
-        "42"
+        "66",
+        "64",
+        "22",
+        "43",
+        "12",
+        "24",
+        "26",
+        "18",
+        "42",
+        "69",
+        "25",
+        "67",
+        "17"
       ],
       "parameters": [],
       "plugins": [
@@ -1831,7 +2663,7 @@
         }
       ],
       "metadata": {
-        "title": "Factory task [1.5] (Только задания)",
+        "title": "Factory task [1.6] ",
         "description": "This task is stimulus material for research in psychology. The topic: how does the format of communication (chat vs video+voice) affect epistemic trust.",
         "repository": "",
         "contributors": "Nikita Sharin (nasharin@edu.hse.ru)"
