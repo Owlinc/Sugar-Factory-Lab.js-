@@ -28,7 +28,7 @@
         {
           "title": "",
           "message": "end",
-          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Продуктивность последнего этапа\nstudy.parameters.last_stage_productivity = \n    study.parameters.result / \n    (study.parameters.graph_data[\"values\"].length - 1)\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n}\n\n\n// Данные для отрисовки графика продуктивности\nif (typeof(study.parameters.prod_graph_data) == \"undefined\") {\n  var step = 1\n  study.parameters.prod_graph_data = { \"values\": [] }\n} else {\n  var step = study.parameters.prod_graph_data[\"values\"].length + 1\n}\n\nstudy.parameters.prod_graph_data[\"values\"].push({\n  'Этап': \"Серия с напарником\", \n  'Продуктивность': study.parameters.last_stage_productivity, \n  'Номер серии': step})"
+          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Продуктивность последнего этапа\nstudy.parameters.last_stage_productivity = \n    study.parameters.result / \n    (study.parameters.graph_data[\"values\"].length - 1)\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n}\n\nstudy.parameters.number_of_workers = 600\n\n\n// Данные для отрисовки графика продуктивности\nif (typeof(study.parameters.prod_graph_data) == \"undefined\") {\n  var step = 1\n  study.parameters.prod_graph_data = { \"values\": [] }\n} else {\n  var step = study.parameters.prod_graph_data[\"values\"].length + 1\n}\n\nstudy.parameters.prod_graph_data[\"values\"].push({\n  'Этап': \"Серия с напарником\", \n  'Продуктивность': study.parameters.last_stage_productivity, \n  'Номер серии': step})"
         }
       ],
       "title": "form_results",
@@ -186,7 +186,7 @@
       "messageHandlers": [],
       "title": "screen_loader",
       "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
-      "_tab": "Scripts",
+      "_tab": "Behavior",
       "timeout": "500"
     },
     "8": {
@@ -440,11 +440,11 @@
         {
           "title": "",
           "message": "end",
-          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Продуктивность последнего этапа\nstudy.parameters.last_stage_productivity = \n    study.parameters.result / \n    (study.parameters.graph_data[\"values\"].length - 1)\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n}\n\n\n// Данные для отрисовки графика продуктивности\nif (typeof(study.parameters.prod_graph_data) == \"undefined\") {\n  var step = 1\n  study.parameters.prod_graph_data = { \"values\": [] }\n} else {\n  var step = study.parameters.prod_graph_data[\"values\"].length + 1\n}\n\nstudy.parameters.prod_graph_data[\"values\"].push({\n  'Этап': \"Финальная серия\", \n  'Продуктивность': study.parameters.last_stage_productivity, \n  'Номер серии': step})\n"
+          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Продуктивность последнего этапа\nstudy.parameters.last_stage_productivity = \n    study.parameters.result / \n    (study.parameters.graph_data[\"values\"].length - 1)\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n}\n\nstudy.parameters.number_of_workers = 600\n\n\n// Данные для отрисовки графика продуктивности\nif (typeof(study.parameters.prod_graph_data) == \"undefined\") {\n  var step = 1\n  study.parameters.prod_graph_data = { \"values\": [] }\n} else {\n  var step = study.parameters.prod_graph_data[\"values\"].length + 1\n}\n\nstudy.parameters.prod_graph_data[\"values\"].push({\n  'Этап': \"Финальная серия\", \n  'Продуктивность': study.parameters.last_stage_productivity, \n  'Номер серии': step})\n"
         }
       ],
       "title": "form_results",
-      "_tab": "Behavior",
+      "_tab": "Scripts",
       "timeout": ""
     },
     "17": {
@@ -539,7 +539,7 @@
         {
           "title": "",
           "message": "end",
-          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nstudy.parameters.number_of_workers = \n  parseInt(amount_of_workers.innerHTML)\n\n\n// Подсчет производительности следющего шага\nstudy.parameters.production_value = ((2*study.parameters.number_of_workers/100 \n  - study.parameters.production_value/1000) \n  * 1000)\n  \nif (study.parameters.production_value > 12000) {\n  study.parameters.production_value = 12000\n} else if (study.parameters.production_value < 1000) {\n  study.parameters.production_value = 1000\n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n"
+          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nstudy.parameters.number_of_workers = \n  parseInt(amount_of_workers.innerHTML)\n\n\n// Рандомайзер\nfunction randomInteger(min, max) {\n  let rand = min + Math.random() * (max + 1 - min);\n  return Math.floor(rand)}\n\n// Подсчет производительности следующего шага\nrandom_value = randomInteger(-1, 1)\nstudy.parameters.production_value = ((2*study.parameters.number_of_workers/100 \n  - study.parameters.production_value/1000\n  + random_value)\n  * 1000)\n\n// Приведение производительности к границам 1000:12000\nif (study.parameters.production_value > 12000) {\n  study.parameters.production_value = 12000\n} else if (study.parameters.production_value < 1000) {\n  study.parameters.production_value = 1000\n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n"
         },
         {
           "title": "",
@@ -592,7 +592,7 @@
       "items": [
         {
           "type": "text",
-          "content": "<h4 style=\"text-align: left;\"><strong>Спасибо за проделанную работу! </strong></h4>\n<p style=\"text-align: left;\">Последним этапом будет небольшое интервью о впечатлениях эксперимента и проверка полученного опыта.</p>\n<p style=\"text-align: left;\"></p>\n<p style=\"text-align: left;\">Нажмите <kbd> Далее→ </kbd></p>\n<h4 style=\"text-align: left;\"></h4>\n<h4 style=\"text-align: left;\"></h4>\n<h4 style=\"text-align: left;\"></h4>\n<p></p>"
+          "content": "<h4 style=\"text-align: left;\"><strong>Спасибо за проделанную работу! </strong></h4>\n<p style=\"text-align: left;\">Последним этапом будет небольшая форма о взаимодействии с напарником и проверка полученного опыта.</p>\n<p style=\"text-align: left;\"></p>\n<p style=\"text-align: left;\">Нажмите <kbd> Далее→ </kbd></p>\n<h4 style=\"text-align: left;\"></h4>\n<h4 style=\"text-align: left;\"></h4>\n<h4 style=\"text-align: left;\"></h4>\n<p></p>"
         }
       ],
       "scrollTop": true,
@@ -1007,7 +1007,7 @@
         {
           "title": "",
           "message": "end",
-          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nstudy.parameters.number_of_workers = \n  parseInt(amount_of_workers.innerHTML)\n\n\n// Подсчет производительности следющего шага\nstudy.parameters.production_value = ((2*study.parameters.number_of_workers/100 \n  - study.parameters.production_value/1000) \n  * 1000)\n  \nif (study.parameters.production_value > 12000) {\n  study.parameters.production_value = 12000\n} else if (study.parameters.production_value < 1000) {\n  study.parameters.production_value = 1000\n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Обнуление фабрики перед новой серией\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
+          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nstudy.parameters.number_of_workers = \n  parseInt(amount_of_workers.innerHTML)\n\n\n// Рандомайзер\nfunction randomInteger(min, max) {\n  let rand = min + Math.random() * (max + 1 - min);\n  return Math.floor(rand)}\n\n// Подсчет производительности следующего шага\nrandom_value = randomInteger(-1, 1)\nstudy.parameters.production_value = ((2*study.parameters.number_of_workers/100 \n  - study.parameters.production_value/1000\n  + random_value)\n  * 1000)\n\n// Приведение производительности к границам 1000:12000\nif (study.parameters.production_value > 12000) {\n  study.parameters.production_value = 12000\n} else if (study.parameters.production_value < 1000) {\n  study.parameters.production_value = 1000\n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Обнуление фабрики перед новой серией\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
         },
         {
           "title": "",
@@ -1102,7 +1102,7 @@
         {
           "title": "",
           "message": "end",
-          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Продуктивность последнего этапа\nstudy.parameters.last_stage_productivity = \n    study.parameters.result / \n    (study.parameters.graph_data[\"values\"].length - 1)\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n  study.parameters.number_of_workers = 600\n}\n\n\n// Данные для отрисовки графика продуктивности\nif (typeof(study.parameters.prod_graph_data) == \"undefined\") {\n  var step = 1\n  study.parameters.prod_graph_data = { \"values\": [] }\n} else {\n  var step = study.parameters.prod_graph_data[\"values\"].length + 1\n}\n\nstudy.parameters.prod_graph_data[\"values\"].push({\n  'Этап': \"Тренировочная серия\", \n  'Продуктивность': study.parameters.last_stage_productivity, \n  'Номер серии': step})\n\n"
+          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Продуктивность последнего этапа\nstudy.parameters.last_stage_productivity = \n    study.parameters.result / \n    (study.parameters.graph_data[\"values\"].length - 1)\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n  study.parameters.number_of_workers = 600\n}\n\nstudy.parameters.number_of_workers = 600\n\n\n// Данные для отрисовки графика продуктивности\nif (typeof(study.parameters.prod_graph_data) == \"undefined\") {\n  var step = 1\n  study.parameters.prod_graph_data = { \"values\": [] }\n} else {\n  var step = study.parameters.prod_graph_data[\"values\"].length + 1\n}\n\nstudy.parameters.prod_graph_data[\"values\"].push({\n  'Этап': \"Тренировочная серия\", \n  'Продуктивность': study.parameters.last_stage_productivity, \n  'Номер серии': step})\n\n"
         }
       ],
       "title": "form_results",
@@ -1403,7 +1403,7 @@
         {
           "title": "",
           "message": "end",
-          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nstudy.parameters.number_of_workers = \n  parseInt(amount_of_workers.innerHTML)\n\n\n// Подсчет производительности следющего шага\nstudy.parameters.production_value = ((2*study.parameters.number_of_workers/100 \n  - study.parameters.production_value/1000) \n  * 1000)\n  \nif (study.parameters.production_value > 12000) {\n  study.parameters.production_value = 12000\n} else if (study.parameters.production_value < 1000) {\n  study.parameters.production_value = 1000\n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
+          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nstudy.parameters.number_of_workers = \n  parseInt(amount_of_workers.innerHTML)\n\n\n// Рандомайзер\nfunction randomInteger(min, max) {\n  let rand = min + Math.random() * (max + 1 - min);\n  return Math.floor(rand)}\n\n// Подсчет производительности следующего шага\nrandom_value = randomInteger(-1, 1)\nstudy.parameters.production_value = ((2*study.parameters.number_of_workers/100 \n  - study.parameters.production_value/1000\n  + random_value)\n  * 1000)\n\n// Приведение производительности к границам 1000:12000\nif (study.parameters.production_value > 12000) {\n  study.parameters.production_value = 12000\n} else if (study.parameters.production_value < 1000) {\n  study.parameters.production_value = 1000\n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
         },
         {
           "title": "",
@@ -1467,7 +1467,7 @@
         {
           "title": "",
           "message": "end",
-          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Продуктивность последнего этапа\nstudy.parameters.last_stage_productivity = \n    study.parameters.result / \n    (study.parameters.graph_data[\"values\"].length - 1)\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n}\n\n\n// Данные для отрисовки графика продуктивности\nvar step = study.parameters.prod_graph_data[\"values\"].length + 1\n\nstudy.parameters.prod_graph_data[\"values\"].push({\n  'Этап': \"Тренировочная серия\", \n  'Продуктивность': study.parameters.last_stage_productivity, \n  'Номер серии': step})"
+          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Продуктивность последнего этапа\nstudy.parameters.last_stage_productivity = \n    study.parameters.result / \n    (study.parameters.graph_data[\"values\"].length - 1)\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n}\n\nstudy.parameters.number_of_workers = 600\n\n\n// Данные для отрисовки графика продуктивности\nvar step = study.parameters.prod_graph_data[\"values\"].length + 1\n\nstudy.parameters.prod_graph_data[\"values\"].push({\n  'Этап': \"Тренировочная серия\", \n  'Продуктивность': study.parameters.last_stage_productivity, \n  'Номер серии': step})"
         }
       ],
       "title": "form_results",
@@ -1485,20 +1485,14 @@
           {
             "name": "stage",
             "type": "string"
-          },
-          {
-            "name": "",
-            "type": "string"
           }
         ],
         "rows": [
           [
-            "Серия с напарником №1",
-            ""
+            "Серия с напарником №1"
           ],
           [
-            "Серия с напарником №2",
-            ""
+            "Серия с напарником №2"
           ]
         ]
       },
@@ -1579,90 +1573,90 @@
             "type": "string"
           },
           {
-            "name": "",
-            "type": "string"
+            "name": "random_value",
+            "type": "number"
           }
         ],
         "rows": [
           [
             "1",
-            ""
+            "0"
           ],
           [
             "2",
-            ""
+            "1"
           ],
           [
             "3",
-            ""
+            "1"
           ],
           [
             "4",
-            ""
+            "-1"
           ],
           [
             "5",
-            ""
+            "1"
           ],
           [
             "6",
-            ""
+            "1"
           ],
           [
             "7",
-            ""
+            "0"
           ],
           [
             "8",
-            ""
+            "0"
           ],
           [
             "9",
-            ""
+            "0"
           ],
           [
             "10",
-            ""
+            "1"
           ],
           [
             "11",
-            ""
+            "0"
           ],
           [
             "12",
-            ""
+            "0"
           ],
           [
             "13",
-            ""
+            "-1"
           ],
           [
             "14",
-            ""
+            "1"
           ],
           [
             "15",
-            ""
+            "-1"
           ],
           [
             "16",
-            ""
+            "0"
           ],
           [
             "17",
-            ""
+            "0"
           ],
           [
             "18",
-            ""
+            "-1"
           ],
           [
             "19",
-            ""
+            "0"
           ],
           [
             "20",
-            ""
+            "-1"
           ]
         ]
       },
@@ -1703,7 +1697,8 @@
         "8",
         "6",
         "7",
-        "128",
+        "129",
+        "130",
         "5",
         "58",
         "127"
@@ -1758,11 +1753,11 @@
         {
           "title": "",
           "message": "end",
-          "code": "// Очистка/обнуление зависимостей \n// Слушатель enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// График (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\ninput_value = parseInt(amount_of_workers.innerHTML)\nstudy.parameters.number_of_workers = input_value\nstudy.parameters.last_number_of_workers = input_value\n\n\n// Подсчет производительности следющего шага\nstudy.parameters.production_value = ((2*study.parameters.number_of_workers/100 \n  - study.parameters.production_value/1000) \n  * 1000)\n  \nif (study.parameters.production_value > 12000) {\n  study.parameters.production_value = 12000\n} else if (study.parameters.production_value < 1000) {\n  study.parameters.production_value = 1000\n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Индикация последнего шага для обнуления фабрики\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
+          "code": "// Очистка/обнуление зависимостей \n// Слушатель enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// График (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\ninput_value = parseInt(amount_of_workers.innerHTML)\nstudy.parameters.number_of_workers = input_value\nstudy.parameters.last_number_of_workers = input_value\n\n\n// Подсчет производительности следющего шага\nstudy.parameters.production_value = ((2*study.parameters.number_of_workers/100 \n  - study.parameters.production_value/1000\n  + this.parameters.random_value)\n  * 1000)\n\n// Приведение производительности к границам 1000:12000\nif (study.parameters.production_value > 12000) {\n  study.parameters.production_value = 12000\n} else if (study.parameters.production_value < 1000) {\n  study.parameters.production_value = 1000\n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Индикация последнего шага для обнуления фабрики\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
         }
       ],
       "title": "screen_attempt_final",
-      "_tab": "Content",
+      "_tab": "Scripts",
       "timeout": ""
     },
     "60": {
@@ -2027,6 +2022,7 @@
       "title": "INTERVIEW",
       "type": "lab.flow.Sequence",
       "children": [
+        "131",
         "117",
         "118",
         "119",
@@ -2436,10 +2432,10 @@
       "_tab": "Scripts",
       "timeout": "500"
     },
-    "128": {
-      "id": "128",
+    "129": {
+      "id": "129",
       "type": "lab.html.Form",
-      "content": "<!-- Шапка --> \n<header class = \"header-footer-style\">\n\n    Синхронизация • \n    ${this.parameters.step}/20 шаг набора <br>\n    \n</header>\n\n\n<main class = \"main-layout content-vertical-center\">\n\n  <!-- Блок, информирующий о текущей задаче --> \n  <div id = \"discussion-block\" class = \"card text-centered\">\n\n        <div id = \"prod-level-headline\" class = \"headline\">\n          Период обсуждения\n        </div>\n\n        <div id = \"task-headline\" class = \"fifthteen_px text-lefted\"> \n\n           <span class = \"medium_weight\"> 1. Синхронизируйтесь: </span> вы и ваш партнер должны находиться на этой странице на одном и том же шаге (вы находитесь на шаге №${this.parameters.step}) <br> \n\n           <p><span class = \"medium_weight\"> \n              2. Перейдите к странице финального выбора\n           </span></p>\n\n           <span class = \"medium_weight\"> 3. Обсудите задание перед совершением финального выбора: </span> например, кто какое количество рабочих выбрал на предварительном этапе? Почему? Есть ли стратегии выбора? <br>\n\n        </div>\n\n  </div>\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти к странице финального выбора\n</footer>\n\n",
+      "content": "<!-- Шапка --> \n<header class = \"header-footer-style\">\n\n    Синхронизация и обсуждение • \n    ${this.parameters.step}/20 шаг набора <br>\n    \n</header>\n\n\n<main class = \"main-layout content-vertical-center\">\n\n  <!-- Блок, информирующий о текущей задаче --> \n  <div id = \"discussion-block\" class = \"card text-centered\">\n\n        <div id = \"prod-level-headline\" class = \"headline\">\n          Текущая задача\n        </div>\n\n        <div id = \"task-headline\" class = \"fifthteen_px text-lefted\"> \n\n           <span class = \"medium_weight\"> 1. Синхронизируйтесь: </span> вы и ваш партнер должны находиться на этой странице на одном и том же шаге (вы находитесь на шаге №${this.parameters.step}) <br> \n\n           <p><span class = \"medium_weight\"> \n              2. Перейдите к странице финального выбора\n           </span></p>\n\n           <span class = \"medium_weight\"> 3. Обсудите фабрику перед совершением финального выбора: </span> например, кто какое количество рабочих выбрал на предварительном этапе? Почему? Есть какие-нибудь мысли? стратегии? <br>\n\n        </div>\n\n  </div>\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти к странице финального выбора\n</footer>\n\n",
       "scrollTop": true,
       "files": [],
       "responses": [
@@ -2457,9 +2453,121 @@
       ],
       "messageHandlers": [],
       "title": "screen_sync",
-      "_tab": "Content",
+      "_tab": "Behavior",
       "skip": false,
-      "tardy": false
+      "tardy": true,
+      "skipCondition": "${ (this.parameters.step != 1) || (this.parameters.stage != \"Серия с напарником №1\") }"
+    },
+    "130": {
+      "id": "130",
+      "type": "lab.html.Form",
+      "content": "<!-- Шапка --> \n<header class = \"header-footer-style\">\n\n    Синхронизация и обсуждение • \n    ${this.parameters.step}/20 шаг набора <br>\n    \n</header>\n\n\n<main class = \"main-layout content-vertical-center\">\n\n  <!-- Блок, информирующий о текущей задаче --> \n  <div id = \"discussion-block-shortened\" class = \"card text-centered\">\n\n        <div id = \"prod-level-headline\" class = \"headline\">\n          Текущая задача\n        </div>\n\n        <div id = \"task-headline\" class = \"fifthteen_px text-lefted\"> \n\n           <span class = \"medium_weight\"> 1. Синхронизируйтесь с напарником </span> (вы находитесь на шаге №${this.parameters.step}) <br> \n\n           <p><span class = \"medium_weight\"> \n              2. Перейдите к странице финального выбора\n           </span></p>\n\n           <span class = \"medium_weight\"> \n             3. Обсудите фабрику перед совершением финального выбора <br>\n           </span>\n\n        </div>\n\n  </div>\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти к странице финального выбора\n</footer>\n\n",
+      "scrollTop": true,
+      "files": [],
+      "responses": [
+        {
+          "event": "keypress",
+          "filter": "Enter"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "screen_sync_shortened",
+      "_tab": "Behavior",
+      "skip": false,
+      "tardy": true,
+      "skipCondition": "${ (this.parameters.step == 1 && this.parameters.stage == \"Серия с напарником №1\") }"
+    },
+    "131": {
+      "id": "131",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "title": "",
+          "content": ""
+        },
+        {
+          "required": true,
+          "type": "likert",
+          "items": [
+            {
+              "label": "Качество&nbspисходных&nbspмнений напарника(-цы) было очень высокое",
+              "coding": "et_1"
+            },
+            {
+              "label": "Чаще всего я доверял(а) мнению напарника(-цы)",
+              "coding": "et_2"
+            },
+            {
+              "label": "Напарника(-цу) можно считать надежным источником информации",
+              "coding": "et_3"
+            },
+            {
+              "label": "Мое мнение и мнение напарника(-цы) часто совпадали",
+              "coding": "et_4"
+            },
+            {
+              "label": "Напарник(-ца) хорошо справляется с поставленной задачей",
+              "coding": "et_5"
+            },
+            {
+              "label": "Чаще всего я доверял(а) своему мнению, а не мнению напарника(-цы)",
+              "coding": "et_6_negative"
+            },
+            {
+              "coding": "et_7_negative",
+              "label": "Мое и мнение напарника(-цы) часто расходились"
+            }
+          ],
+          "width": "5",
+          "anchors": [
+            "Абсолютно <nobr>НЕ&nbspсогласен(-а)</nobr>",
+            "Скорее <nobr>НЕ&nbspсогласен(-а)</nobr>",
+            "Затрудняюсь ответить",
+            "Скорее <nobr>согласен(-а)</nobr>",
+            "Полностью <nobr>согласен(-а)</nobr>"
+          ],
+          "label": "<span style = \"font-size: 28px\"><strong> Взаимодействие с напарником(-цей) </strong></span> <br>  <p style=\"font-size: 0px\">&nbsp;</p> <span style = \"font-size: 18px; color: gray; font-weight: 400\"> Оцените опыт совместного принятия решений </span>  <p style=\"font-size: 8px\">&nbsp;</p>",
+          "shuffle": true,
+          "name": "epistemic_trust",
+          "help": ""
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Далее →",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "page_interaction_assess",
+      "width": "l"
     },
     "root": {
       "id": "root",
@@ -2485,8 +2593,8 @@
         }
       ],
       "metadata": {
-        "title": "Factory task [1.7] ",
-        "description": "This task is stimulus material for research in psychology. The topic: how does the format of communication (chat vs video+voice) affect epistemic trust.",
+        "title": "Factory task [1.7.1] ",
+        "description": "This task is stimulus material for the research in psychology. The topic: how does the format of communication (chat vs video+voice) affect epistemic trust.",
         "repository": "",
         "contributors": "Nikita Sharin (nasharin@edu.hse.ru)"
       }
@@ -2504,7 +2612,7 @@
         "source": "library"
       },
       "style.css": {
-        "content": "data:text/css,%2F*%20%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8%20*%2F%0A%0A%2F*%20%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BB%D0%B5%D0%B9%D0%B1%D0%BB%D0%B0%20%D1%81%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%D0%BC%20%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D1%85%20%D0%BF%D1%80%D0%B8%20%D0%BF%D1%80%D0%B5%D0%B2%D1%8B%D1%88%D0%B5%D0%BD%D0%B8%D0%B8%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%2F%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20*%2F%0A.workers_amount_animation%20%7B%0A%20%20animation-name%3A%20color-change%3B%0A%20%20animation-duration%3A%200.6s%3B%0A%7D%0A%0A%40keyframes%20color-change%20%7B%0A%20%200%25%20%20%20%7Bcolor%3A%20rgb(0%2C%200%2C%200)%3B%7D%0A%20%2050%25%20%20%7Bcolor%3A%20rgb(186%2C%2069%2C%2069)%3B%7D%0A%20%20100%25%20%7Bcolor%3A%20black%3B%7D%0A%7D%0A%0A%0A%2F*%20%D0%97%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D1%87%D0%B8%D0%BA%20*%2F%0A%0A.loader%20%7B%0A%20%20border%3A%2012px%20solid%20%23f3f3f3%3B%20%2F*%20Light%20grey%20*%2F%0A%20%20border-top%3A%2012px%20solid%20%233498db%3B%20%2F*%20Blue%20*%2F%0A%20%20border-radius%3A%2050%25%3B%0A%20%20width%3A%2080px%3B%0A%20%20height%3A%2080px%3B%0A%20%20animation%3A%20spin%202s%20linear%20infinite%3B%0A%7D%0A%0A%40keyframes%20spin%20%7B%0A%20%200%25%20%7B%20transform%3A%20rotate(0deg)%3B%20%7D%0A%20%20100%25%20%7B%20transform%3A%20rotate(360deg)%3B%20%7D%0A%7D%0A%0A%0A%2F*%20%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D1%85%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20*%2F%0A%0A%23stage-title%20%7B%0A%20%20margin-top%3A%205px%3B%0A%7D%0A%0A%23prem-response%20%7B%0A%20%20padding-bottom%3A%203px%3B%0A%20%20font-size%3A%2051px%3B%0A%7D%0A%0A%23prem-response-fabric%20%7B%0A%20%20padding-top%3A%202px%3B%0A%20%20padding-bottom%3A%203px%3B%0A%20%20font-size%3A%2052px%3B%0A%7D%0A%0A%23prem-response-dis%20%7B%0A%20%20padding-bottom%3A%203px%3B%0A%20%20font-size%3A%2045px%3B%0A%7D%0A%0A%23chart-card%20%7B%0A%20%20padding-top%3A%2015px%3B%0A%20%20padding-bottom%3A%2010px%0A%7D%0A%0A%23advice-section-col%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20357px%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20align-items%3A%20left%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A%23info-section-col%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20align-items%3A%20left%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A%23info-section-row%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A%23prod-level%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A%23prod-level-final%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A%23discussion-block%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20540px%3B%0A%7D%0A%0A%23workers-num-block%20%7B%0A%20%20padding-left%3A%2039px%3B%0A%20%20padding-right%3A%2039px%3B%0A%7D%0A%0A%23confidence-block%20%7B%0A%20%20margin-bottom%3A%2018px%3B%0A%7D%0A%0A%23conf-block%20%7B%0A%20%20width%3A%20580px%3B%20%0A%20%20padding-bottom%3A%208px%3B%0A%7D%0A%0A%2F*%20%D0%97%D0%B0%D0%B3%D0%B0%D0%BB%D0%BE%D0%B2%D0%BA%D0%B8%20*%2F%0A%0A%23prod-level-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%0A%20%20padding-bottom%3A%2016px%0A%7D%0A%0A%23prod-level-headline-dis%20%7B%0A%20%20padding-top%3A%2019px%3B%0A%20%20padding-bottom%3A%2010px%0A%7D%0A%0A%23target-level-headline%20%7B%0A%20%20padding-bottom%3A%2018px%3B%20%0A%20%20padding-top%3A%205px%3B%0A%7D%0A%0A%23middle-text-point%20%7B%0A%20%20padding-top%3A%205px%3B%0A%7D%0A%0A%23advice-text%20%7B%0A%20%20padding-bottom%3A%2018px%3B%20%0A%7D%0A%0A%23prem-choice-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%204px%0A%7D%0A%0A%23prem-choice-headline-dis%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%205px%0A%7D%0A%0A%23confidence-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%208px%3B%0A%7D%0A%0A%23conf-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%206px%3B%0A%7D%0A%0A%23task-headline%20%7B%0A%20%20padding-bottom%3A%2020px%3B%20%0A%7D%0A%0A%0A%2F*%20%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D1%8B%D0%B5%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20*%2F%0A%0Abody%20%7B%20font-family%3A%20'Roboto'%2C%20sans-serif%20%7D%0Aform%20%7B%20text-align%3A%20left%20%7D%0A%0A.header-footer-style%20%7B%0A%20%20background-color%3A%20%23F6F6F6%3B%20%0A%20%20font-size%3A%2016px%3B%0A%7D%0A%0A%0A%2F*%20%D0%A8%D1%80%D0%B8%D1%84%D1%82%D1%8B%20*%2F%0A%0A.headline%20%7B%0A%20%20font-size%3A%2016px%3B%0A%20%20font-weight%3A%20bold%3B%0A%7D%0A%0A.fourteen_px%20%7B%20font-size%3A%2014px%20%7D%0A.fifthteen_px%20%7B%20font-size%3A%2015px%20%7D%0A.nineteen_px%20%7B%20font-size%3A%2019px%20%7D%0A.twenty-four_px%20%7B%20font-size%3A%2024px%20%7D%0A.twenty-eight_px%20%7B%20font-size%3A%2028px%20%7D%0A%0A.medium_weight%20%7B%20font-weight%3A%20500%20%7D%0A.light_weight%20%7B%20font-weight%3A%20400%20%7D%0A%0A%0A%2F*%20%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D0%B0%D0%BD%D0%B5%D0%BB%D0%B8%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%B0%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D1%85%22%20*%2F%0A%0A.work-num-element%20%7B%0A%20%20padding%3A%208px%3B%0A%20%20margin-top%3A%200px%3B%0A%20%20margin-right%3A%204px%3B%0A%20%20margin-bottom%3A%2020px%3B%0A%20%20margin-left%3A%204px%3B%0A%7D%0A%0A%2F*%20%D0%9A%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0%20*%2F%0A%0A.button%20%7B%0A%20%20background-color%3A%20rgb(255%2C%20255%2C%20255)%3B%0A%09width%3A%2047.5px%3B%0A%20%20border-radius%3A%2040px%3B%0A%20%20transition%3A%20.1s%20ease-in-out%200s%3B%0A%7D%0A%0A.button%3Ahover%7B%0A%20%20cursor%3A%20pointer%3B%0A%20%20transform%3A%20scale(1.1)%3B%0A%20%20background-color%3A%20%23F6F6F6%3B%0A%7D%0A%0A.button%3Adisabled%7B%0A%20%20opacity%3A%200.4%3B%0A%7D%0A%0A%2F*%20%D0%9A%D0%B0%D1%80%D1%82%D0%BE%D1%87%D0%BA%D0%B8%20*%2F%0A%0A.card%20%7B%20%20%0A%20%20padding-left%3A%2020px%3B%0A%20%20padding-right%3A%2020px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20border-color%3A%20%23E6E8EA%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%3B%0A%20%20transition%3A%20.1s%20ease-in-out%200s%3B%0A%7D%0A%0A.card%3Ainvalid%20%7B%20%20%0A%20%20border-color%3A%20rgb(207%2C%2083%2C%2083)%3B%0A%20%20background-color%3A%20%20rgb(239%2C%20213%2C%20213)%3B%0A%7D%0A%0A.present-card%20%7B%20%20%0A%20%20padding%3A%2046px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20background-color%3A%20%23FFFFFF%3B%0A%20%20border-color%3A%20%23E6E8EA%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%3B%0A%7D%0A%0A.final-choice-card%20%7B%20%20%0A%20%20padding%3A%2046px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20background-color%3A%20%23F5FBFF%3B%0A%20%20border-color%3A%20%23D6E9F9%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%3B%0A%7D%0A%0A.prelim-choice-card%20%7B%20%20%0A%20%20padding%3A%2046px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20background-color%3A%20%23F6FDFD%3B%0A%20%20border-color%3A%20%23D2EDF0%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%3B%0A%7D%0A%0A%0A%2F*%20%D0%9B%D0%B8%D0%BA%D0%B5%D1%80%D1%82-%D1%88%D0%BA%D0%B0%D0%BB%D0%B0%20*%2F%0A%0Aform%20.likert%3Abefore%20%7B%0A%20%20content%3A%20''%3B%0A%20%20position%3Arelative%3B%0A%20%20top%3A%2018px%3B%0A%20%20left%3A%2013%25%3B%0A%20%20display%3A%20block%3B%0A%20%20background-color%3A%23e0e0e0%3B%0A%20%20height%3A%202px%3B%0A%20%20width%3A%2074%25%3B%0A%7D%0A%0Aform%20.likert%20li%20%7B%0A%20%20display%3A%20inline-block%3B%0A%20%20width%3A%2024%25%3B%0A%20%20text-align%3A%20center%3B%0A%20%20vertical-align%3A%20top%3B%0A%7D%0A%0Aform%20.likert%20ul%20%7B%0A%20%20padding-inline-start%3A%200px%3B%0A%20%20padding-left%3A%205px%3B%20%0A%20%20margin-top%3A%200px%3B%20%0A%20%20margin-bottom%3A%2012px%3B%0A%7D%0A%0Aform%20.likert%20li%20input%5Btype%20%3D%20radio%5D%20%7B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20relative%3B%0A%20%20top%3A%200%3B%0A%20%20left%3A%2050%25%3B%0A%20%20margin-left%3A%20-6px%3B%0A%20%20height%3A%2018px%3B%0A%20%20width%3A%2020%25%3B%0A%7D%0A%0A.likert%20%7B%0A%20%20padding-left%3A%205px%3B%20%0A%20%20margin-top%3A%200px%3B%20%0A%20%20margin-bottom%3A%2012px%0A%7D%0A%0A%2F*%20%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20*%2F%0A%0A.main-layout%20%7B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%20%20gap%3A%2020px%3B%0A%20%20justify-content%3A%20center%3B%0A%7D%0A%0A.horizontal-section%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A.horizontal-centered%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%7D%0A%0A.vertical-centered%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20align-items%3A%20center%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A.vertical-lefted%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A%0A%2F*%20%D0%92%D1%8B%D1%80%D0%B0%D0%B2%D0%BD%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%B0%20*%2F%0A%0A.text-lefted%20%7B%0A%20display%3A%20block%3B%0A%20text-align%3A%20left%3B%0A%7D%0A%0A.text-centered%20%7B%0A%20display%3A%20block%3B%0A%20text-align%3A%20center%3B%0A%7D%0A%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D1%88%D1%80%D0%B8%D1%84%D1%82%D1%8B%20*%2F%0A%0A.dark-red%20%7B%20color%3A%20firebrick%20%7D%0A.dark-yellow%20%7B%20color%3A%20%23C17F29%20%7D%0A.dark-green%20%7B%20color%3A%20rgb(60%2C%20131%2C%2039)%20%7D%0A.gray%20%7B%20color%3A%20%23828282%7D%0A.turquoise%20%7B%20color%3A%20rgb(31%2C%20150%2C%20159)%20%7D%0A.turquoise-light%20%7B%20color%3A%20%2336A4AC%20%7D%0A.blue%20%7B%20color%3A%20rgb(42%2C%20120%2C%20184)%20%7D%0A.blue-light%20%7B%20color%3A%20%234E9DDF%20%7D%0A.purple%20%7B%20color%3A%20%23896dd1%20%7D%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D1%84%D0%BE%D0%BD%20*%2F%0A%0A.weak-red%20%7B%20background-color%3A%20rgb(239%2C%20165%2C%20165)%20%7D%0A.light-gray%20%7B%20background-color%3A%20%23F6F6F6%20%7D%0A.input-color%20%7B%20background-color%3A%20%23F6F6F6%20%7D%0A.output-color%20%7B%20background-color%3A%20%23F7FAFC%20%7D%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B%20*%2F%0A%0A.red-state%20%7B%0A%20%20border-color%3A%20rgb(207%2C%2083%2C%2083)%3B%0A%20%20background-color%3A%20%20rgb(243%2C%20227%2C%20227)%3B%0A%7D",
+        "content": "data:text/css,%2F*%20%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8%20*%2F%0A%0A%2F*%20%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BB%D0%B5%D0%B9%D0%B1%D0%BB%D0%B0%20%D1%81%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%D0%BC%20%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D1%85%20%D0%BF%D1%80%D0%B8%20%D0%BF%D1%80%D0%B5%D0%B2%D1%8B%D1%88%D0%B5%D0%BD%D0%B8%D0%B8%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%2F%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20*%2F%0A.workers_amount_animation%20%7B%0A%20%20animation-name%3A%20color-change%3B%0A%20%20animation-duration%3A%200.6s%3B%0A%7D%0A%0A%40keyframes%20color-change%20%7B%0A%20%200%25%20%20%20%7Bcolor%3A%20rgb(0%2C%200%2C%200)%3B%7D%0A%20%2050%25%20%20%7Bcolor%3A%20rgb(186%2C%2069%2C%2069)%3B%7D%0A%20%20100%25%20%7Bcolor%3A%20black%3B%7D%0A%7D%0A%0A%0A%2F*%20%D0%97%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D1%87%D0%B8%D0%BA%20*%2F%0A%0A.loader%20%7B%0A%20%20border%3A%2012px%20solid%20%23f3f3f3%3B%20%2F*%20Light%20grey%20*%2F%0A%20%20border-top%3A%2012px%20solid%20%233498db%3B%20%2F*%20Blue%20*%2F%0A%20%20border-radius%3A%2050%25%3B%0A%20%20width%3A%2080px%3B%0A%20%20height%3A%2080px%3B%0A%20%20animation%3A%20spin%202s%20linear%20infinite%3B%0A%7D%0A%0A%40keyframes%20spin%20%7B%0A%20%200%25%20%7B%20transform%3A%20rotate(0deg)%3B%20%7D%0A%20%20100%25%20%7B%20transform%3A%20rotate(360deg)%3B%20%7D%0A%7D%0A%0A%0A%2F*%20%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D1%85%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20*%2F%0A%0A%23stage-title%20%7B%0A%20%20margin-top%3A%205px%3B%0A%7D%0A%0A%23prem-response%20%7B%0A%20%20padding-bottom%3A%203px%3B%0A%20%20font-size%3A%2051px%3B%0A%7D%0A%0A%23prem-response-fabric%20%7B%0A%20%20padding-top%3A%202px%3B%0A%20%20padding-bottom%3A%203px%3B%0A%20%20font-size%3A%2052px%3B%0A%7D%0A%0A%23prem-response-dis%20%7B%0A%20%20padding-bottom%3A%203px%3B%0A%20%20font-size%3A%2045px%3B%0A%7D%0A%0A%23chart-card%20%7B%0A%20%20padding-top%3A%2015px%3B%0A%20%20padding-bottom%3A%2010px%0A%7D%0A%0A%23advice-section-col%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20357px%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20align-items%3A%20left%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A%23info-section-col%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20align-items%3A%20left%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A%23info-section-row%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A%23prod-level%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A%23prod-level-final%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A%23discussion-block%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20544px%3B%0A%7D%0A%0A%23discussion-block-shortened%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20516px%3B%0A%7D%0A%0A%23workers-num-block%20%7B%0A%20%20padding-left%3A%2039px%3B%0A%20%20padding-right%3A%2039px%3B%0A%7D%0A%0A%23confidence-block%20%7B%0A%20%20margin-bottom%3A%2018px%3B%0A%7D%0A%0A%23conf-block%20%7B%0A%20%20width%3A%20580px%3B%20%0A%20%20padding-bottom%3A%208px%3B%0A%7D%0A%0A%2F*%20%D0%97%D0%B0%D0%B3%D0%B0%D0%BB%D0%BE%D0%B2%D0%BA%D0%B8%20*%2F%0A%0A%23prod-level-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%0A%20%20padding-bottom%3A%2016px%0A%7D%0A%0A%23prod-level-headline-dis%20%7B%0A%20%20padding-top%3A%2019px%3B%0A%20%20padding-bottom%3A%2010px%0A%7D%0A%0A%23target-level-headline%20%7B%0A%20%20padding-bottom%3A%2018px%3B%20%0A%20%20padding-top%3A%205px%3B%0A%7D%0A%0A%23middle-text-point%20%7B%0A%20%20padding-top%3A%205px%3B%0A%7D%0A%0A%23advice-text%20%7B%0A%20%20padding-bottom%3A%2018px%3B%20%0A%7D%0A%0A%23prem-choice-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%204px%0A%7D%0A%0A%23prem-choice-headline-dis%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%205px%0A%7D%0A%0A%23confidence-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%208px%3B%0A%7D%0A%0A%23conf-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%206px%3B%0A%7D%0A%0A%23task-headline%20%7B%0A%20%20padding-bottom%3A%2020px%3B%20%0A%7D%0A%0A%0A%2F*%20%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D1%8B%D0%B5%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20*%2F%0A%0Abody%20%7B%20font-family%3A%20'Roboto'%2C%20sans-serif%20%7D%0Aform%20%7B%20text-align%3A%20left%20%7D%0A%0A.header-footer-style%20%7B%0A%20%20background-color%3A%20%23F6F6F6%3B%20%0A%20%20font-size%3A%2016px%3B%0A%7D%0A%0A%0A%2F*%20%D0%A8%D1%80%D0%B8%D1%84%D1%82%D1%8B%20*%2F%0A%0A.headline%20%7B%0A%20%20font-size%3A%2016px%3B%0A%20%20font-weight%3A%20bold%3B%0A%7D%0A%0A.fourteen_px%20%7B%20font-size%3A%2014px%20%7D%0A.fifthteen_px%20%7B%20font-size%3A%2015px%20%7D%0A.nineteen_px%20%7B%20font-size%3A%2019px%20%7D%0A.twenty-four_px%20%7B%20font-size%3A%2024px%20%7D%0A.twenty-eight_px%20%7B%20font-size%3A%2028px%20%7D%0A%0A.medium_weight%20%7B%20font-weight%3A%20500%20%7D%0A.light_weight%20%7B%20font-weight%3A%20400%20%7D%0A%0A%0A%2F*%20%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D0%B0%D0%BD%D0%B5%D0%BB%D0%B8%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%B0%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D1%85%22%20*%2F%0A%0A.work-num-element%20%7B%0A%20%20padding%3A%208px%3B%0A%20%20margin-top%3A%200px%3B%0A%20%20margin-right%3A%204px%3B%0A%20%20margin-bottom%3A%2020px%3B%0A%20%20margin-left%3A%204px%3B%0A%7D%0A%0A%2F*%20%D0%9A%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0%20*%2F%0A%0A.button%20%7B%0A%20%20background-color%3A%20rgb(255%2C%20255%2C%20255)%3B%0A%09width%3A%2047.5px%3B%0A%20%20border-radius%3A%2040px%3B%0A%20%20transition%3A%20.1s%20ease-in-out%200s%3B%0A%7D%0A%0A.button%3Ahover%7B%0A%20%20cursor%3A%20pointer%3B%0A%20%20transform%3A%20scale(1.1)%3B%0A%20%20background-color%3A%20%23F6F6F6%3B%0A%7D%0A%0A.button%3Adisabled%7B%0A%20%20opacity%3A%200.4%3B%0A%7D%0A%0A%2F*%20%D0%9A%D0%B0%D1%80%D1%82%D0%BE%D1%87%D0%BA%D0%B8%20*%2F%0A%0A.card%20%7B%20%20%0A%20%20padding-left%3A%2020px%3B%0A%20%20padding-right%3A%2020px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20border-color%3A%20%23E6E8EA%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%3B%0A%20%20transition%3A%20.1s%20ease-in-out%200s%3B%0A%7D%0A%0A.card%3Ainvalid%20%7B%20%20%0A%20%20border-color%3A%20rgb(207%2C%2083%2C%2083)%3B%0A%20%20background-color%3A%20%20rgb(239%2C%20213%2C%20213)%3B%0A%7D%0A%0A.present-card%20%7B%20%20%0A%20%20padding%3A%2046px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20background-color%3A%20%23FFFFFF%3B%0A%20%20border-color%3A%20%23E6E8EA%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%3B%0A%7D%0A%0A.final-choice-card%20%7B%20%20%0A%20%20padding%3A%2046px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20background-color%3A%20%23F5FBFF%3B%0A%20%20border-color%3A%20%23D6E9F9%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%3B%0A%7D%0A%0A.prelim-choice-card%20%7B%20%20%0A%20%20padding%3A%2046px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20background-color%3A%20%23F6FDFD%3B%0A%20%20border-color%3A%20%23D2EDF0%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%3B%0A%7D%0A%0A%0A%2F*%20%D0%9B%D0%B8%D0%BA%D0%B5%D1%80%D1%82-%D1%88%D0%BA%D0%B0%D0%BB%D0%B0%20*%2F%0A%0Aform%20.likert%3Abefore%20%7B%0A%20%20content%3A%20''%3B%0A%20%20position%3Arelative%3B%0A%20%20top%3A%2018px%3B%0A%20%20left%3A%2013%25%3B%0A%20%20display%3A%20block%3B%0A%20%20background-color%3A%23e0e0e0%3B%0A%20%20height%3A%202px%3B%0A%20%20width%3A%2074%25%3B%0A%7D%0A%0Aform%20.likert%20li%20%7B%0A%20%20display%3A%20inline-block%3B%0A%20%20width%3A%2024%25%3B%0A%20%20text-align%3A%20center%3B%0A%20%20vertical-align%3A%20top%3B%0A%7D%0A%0Aform%20.likert%20ul%20%7B%0A%20%20padding-inline-start%3A%200px%3B%0A%20%20padding-left%3A%205px%3B%20%0A%20%20margin-top%3A%200px%3B%20%0A%20%20margin-bottom%3A%2012px%3B%0A%7D%0A%0Aform%20.likert%20li%20input%5Btype%20%3D%20radio%5D%20%7B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20relative%3B%0A%20%20top%3A%200%3B%0A%20%20left%3A%2050%25%3B%0A%20%20margin-left%3A%20-6px%3B%0A%20%20height%3A%2018px%3B%0A%20%20width%3A%2020%25%3B%0A%7D%0A%0A.likert%20%7B%0A%20%20padding-left%3A%205px%3B%20%0A%20%20margin-top%3A%200px%3B%20%0A%20%20margin-bottom%3A%2012px%0A%7D%0A%0A%2F*%20%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20*%2F%0A%0A.main-layout%20%7B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%20%20gap%3A%2020px%3B%0A%20%20justify-content%3A%20center%3B%0A%7D%0A%0A.horizontal-section%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A.horizontal-centered%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%7D%0A%0A.vertical-centered%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20align-items%3A%20center%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A.vertical-lefted%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A%0A%2F*%20%D0%92%D1%8B%D1%80%D0%B0%D0%B2%D0%BD%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%B0%20*%2F%0A%0A.text-lefted%20%7B%0A%20display%3A%20block%3B%0A%20text-align%3A%20left%3B%0A%7D%0A%0A.text-centered%20%7B%0A%20display%3A%20block%3B%0A%20text-align%3A%20center%3B%0A%7D%0A%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D1%88%D1%80%D0%B8%D1%84%D1%82%D1%8B%20*%2F%0A%0A.dark-red%20%7B%20color%3A%20firebrick%20%7D%0A.dark-yellow%20%7B%20color%3A%20%23C17F29%20%7D%0A.dark-green%20%7B%20color%3A%20rgb(60%2C%20131%2C%2039)%20%7D%0A.gray%20%7B%20color%3A%20%23828282%7D%0A.turquoise%20%7B%20color%3A%20rgb(31%2C%20150%2C%20159)%20%7D%0A.turquoise-light%20%7B%20color%3A%20%2336A4AC%20%7D%0A.blue%20%7B%20color%3A%20rgb(42%2C%20120%2C%20184)%20%7D%0A.blue-light%20%7B%20color%3A%20%234E9DDF%20%7D%0A.purple%20%7B%20color%3A%20%23896dd1%20%7D%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D1%84%D0%BE%D0%BD%20*%2F%0A%0A.weak-red%20%7B%20background-color%3A%20rgb(239%2C%20165%2C%20165)%20%7D%0A.light-gray%20%7B%20background-color%3A%20%23F6F6F6%20%7D%0A.input-color%20%7B%20background-color%3A%20%23F6F6F6%20%7D%0A.output-color%20%7B%20background-color%3A%20%23F7FAFC%20%7D%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B%20*%2F%0A%0A.red-state%20%7B%0A%20%20border-color%3A%20rgb(207%2C%2083%2C%2083)%3B%0A%20%20background-color%3A%20%20rgb(243%2C%20227%2C%20227)%3B%0A%7D",
         "source": "library"
       }
     },
