@@ -1,0 +1,95 @@
+{
+  "components": {
+    "1": {
+      "id": "1",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "keypress",
+          "target": "",
+          "filter": "Space"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// Данные для графика\nvar preapred_data = {\"values\": [\n      {'Сделанный выбор': 600, 'Уровень производства': 700, 'Шаг': 0},\n      {'Сделанный выбор': 500, 'Уровень производства': 800, 'Шаг': 1},\n      {'Сделанный выбор': 700, 'Уровень производства': 900, 'Шаг': 2},\n      {'Сделанный выбор': 300, 'Уровень производства': 900, 'Шаг': 3},\n      {'Сделанный выбор': 400, 'Уровень производства': 500, 'Шаг': 4}\n    ]}\n\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: preapred_data,\n  transform: [{'calculate': '600', \"as\":\"ref\"}],\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   {mark: {\"type\": \"line\", \"point\": true},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12}},\n      y: {\n        field: 'Уровень производства', \n        type: 'quantitative', \n        scale: {domain: [0, 1000]},\n        axis: {titleFontSize: 14, labelFontSize: 12}},\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}},\n\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\":\"ref\", title: \"Уровень производства\"},\n        size: {\"value\": 2},\n        color: {\"value\": \"green\"},\n        tooltip: [{\n            \"field\": \"ref\",\n            \"type\": \"quantitative\",\n            \"title\": \"Целевой уровень\"}]}}]\n};\n\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n});\n\n\n// Функция, для изменения значения поля с количеством рабочих\nfunction myFunction(plus) {\n  const t2 = document.getElementById(\"amount_of_workers\");\n  var number = parseInt(t2.innerHTML);\n\n  if (plus === true) {\n    number = number + 100;\n  } else {\n    number = number - 100;\n  }\n\n  t2.firstChild.nodeValue = number;\n}\n\n\n// Привязка функции к нажатию на кнопку \"+\"\nconst pl = document.getElementById(\"+\");\npl.addEventListener(\"click\", () => { myFunction(plus = true); }, false);\n\n\n// Привязка функции к нажатию на кнопку \"-\"\nconst ml = document.getElementById(\"-\");\nml.addEventListener(\"click\", () => { myFunction(plus = false); }, false);\n\n\n\n\n\n"
+        }
+      ],
+      "title": "Factory Interface",
+      "content": "<!-- Шапка --> \n<header class=\"header-style\">\n    5/20 шаг набора • Тренировочный этап <br>\n    <span class=\"attention\"><b>Оставшееся время:</b> 00:04 </span>\n</header>\n\n\n<!-- График (тут только часть, остальное в Scripts) --> \n<main class=\"main-layout\">\n<div class=\"card horizontal-centered\" style = \"padding-top: 15px;padding-bottom: 10px\">\n  <div id = \"chart\"></div>\n</div>\n\n\n<!-- Выбор количества рабочих (тут только часть, логика изменения в Scripts) --> \n<div class = \"card vertical-centered\">\n  <p style=\"font-size: 16px\"><b>Выберите количество рабочих</b></p>\n  <div class=\"horizontal-centered\">\n      <button id = \"-\" class = \"work-num-element button\" style=\"font-size: 19px\">-</button>\n      <span id=\"amount_of_workers\" class=\"work-num-element\" style=\"font-size: 20px\"> 500 </span>\n      <button id=\"+\" class=\"work-num-element button\" style=\"font-size: 19px\">+</button>\n  </div>\n</div>\n\n\n<!-- Уверенность --> \n<div class=\"card vertical-centered\">\n  <p class=\"content-horizontal-center\" style=\"font-size: 16px\"><b>Оцените уверенность</b></p>\n  <div class=\"bottom-margin content-horizontal-center\">\n    <form>\n      <input style=\"font-size: 14px\" type=\"radio\" name=\"confidence\" value = \"A\"> Скорее уверен <br>\n      <input style=\"font-size: 14px\" type=\"radio\" name=\"confidence\" value = \"B\"> Скорее не уверен\n    </form> \n  </div>\n</div>\n</main>\n\n\n<!-- Чердак --> \n<footer style=\"font-size: 16px\">\n  Нажмите <kbd style=\"font-size: 16px\">пробел</kbd>, чтобы сохранить ответ и перейти дальше \n</footer>\n\n\n\n\n\n",
+      "_tab": "Content",
+      "correctResponse": " "
+    },
+    "root": {
+      "id": "root",
+      "title": "root",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "1"
+      ],
+      "parameters": [],
+      "plugins": [
+        {
+          "type": "lab.plugins.Metadata"
+        }
+      ],
+      "metadata": {
+        "title": "",
+        "description": "",
+        "repository": "",
+        "contributors": ""
+      }
+    }
+  },
+  "version": [
+    20,
+    2,
+    4
+  ],
+  "files": {
+    "files": {
+      "index.html": {
+        "content": "data:text/html,%3C!doctype%20html%3E%0A%3Chtml%3E%0A%3Chead%3E%0A%3Cscript%20src%3D%22https%3A%2F%2Fcdnjs.cloudflare.com%2Fajax%2Flibs%2Fvega%2F5.7.0%2Fvega.js%22%3E%3C%2Fscript%3E%0A%3Cscript%20src%3D%22https%3A%2F%2Fcdnjs.cloudflare.com%2Fajax%2Flibs%2Fvega-lite%2F3.4.0%2Fvega-lite.js%22%3E%3C%2Fscript%3E%0A%3Cscript%20src%3D%22https%3A%2F%2Fcdnjs.cloudflare.com%2Fajax%2Flibs%2Fvega-embed%2F5.1.3%2Fvega-embed.js%22%3E%3C%2Fscript%3E%0A%20%20%3Cmeta%20charset%3D%22utf-8%22%3E%0A%20%20%3Ctitle%3EExperiment%3C%2Ftitle%3E%0A%20%20%3C!--%20viewport%20setup%20--%3E%0A%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1%22%3E%0A%20%20%3C!--%20lab.js%20library%20and%20experiment%20code%20--%3E%0A%20%20%24%7B%20header%20%7D%0A%3C%2Fhead%3E%0A%3Cbody%3E%0A%20%20%3C!--%20If%20you'd%20rather%20have%20a%20container%20with%20a%20fixed%20width%0A%20%20%20%20%20%20%20and%20variable%20height%2C%20try%20removing%20the%20fullscreen%20class%20below%20--%3E%0A%20%20%3Cdiv%20class%3D%22container%20fullscreen%22%20data-labjs-section%3D%22main%22%3E%0A%20%20%20%20%3Cmain%20class%3D%22content-vertical-center%20content-horizontal-center%22%3E%0A%20%20%20%20%20%20%3Cdiv%3E%0A%20%20%20%20%20%20%20%20%3Ch2%3ELoading%20Experiment%3C%2Fh2%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EThe%20experiment%20is%20loading%20and%20should%20start%20in%20a%20few%20seconds%3C%2Fp%3E%0A%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%3C%2Fmain%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E%0A",
+        "source": "library"
+      },
+      "style.css": {
+        "content": "data:text/css,.work-num-element%20%7B%0A%20%20padding%3A%208px%3B%0A%20%20margin-top%3A%200px%3B%0A%20%20margin-right%3A%204px%3B%0A%20%20margin-bottom%3A%2015px%3B%0A%20%20margin-left%3A%204px%3B%0A%7D%0A%0A.header-style%20%7B%0A%20%20background-color%3A%20%23F6F6F6%3B%20%0A%20%20font-size%3A%2016px%3B%0A%7D%0A%0A.button%20%7B%0A%20%20background-color%3A%20rgb(255%2C%20255%2C%20255)%3B%0A%09width%3A%2047px%3B%0A%20%20border-radius%3A%2040px%3B%0A%20%20transition%3A%20.1s%20ease-in-out%200s%3B%0A%7D%0A%0A.button%3Ahover%7B%0A%20%20%20cursor%3A%20pointer%3B%0A%20%20%20transform%3A%20scale(1.1)%3B%0A%20%20%20background-color%3A%20%23F6F6F6%3B%0A%7D%0A%0A.card%20%7B%20%20%0A%20%20padding-left%3A%2020px%3B%0A%20%20padding-right%3A%2020px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20background-color%3A%20%23F6F6F6%3B%0A%20%20border-color%3A%20%23E6E8EA%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%0A%7D%0A%0A.main-layout%20%7B%0A%20%20margin%3A%20auto%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%20%20gap%3A%2015px%3B%0A%7D%0A%0A.horizontal-centered%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A.vertical-centered%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%7D%0A%0A.bottom-margin%20%7B%0A%20%20margin-bottom%3A%2020px%3B%0A%7D%0A%0A.attention%20%7B%0A%20%20color%3A%20firebrick%3B%0A%7D",
+        "source": "library"
+      }
+    },
+    "bundledFiles": {
+      "lib/lab.js": {
+        "type": "application/javascript"
+      },
+      "lib/lab.js.map": {
+        "type": "text/plain"
+      },
+      "lib/lab.fallback.js": {
+        "type": "application/javascript"
+      },
+      "lib/lab.legacy.js": {
+        "type": "application/javascript"
+      },
+      "lib/lab.legacy.js.map": {
+        "type": "text/plain"
+      },
+      "lib/lab.css": {
+        "type": "text/css"
+      },
+      "lib/loading.svg": {
+        "type": "image/svg+xml"
+      }
+    }
+  }
+}
