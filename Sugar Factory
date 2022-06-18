@@ -1,10 +1,191 @@
 {
   "components": {
+    "1": {
+      "id": "1",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Content",
+      "timeout": "500"
+    },
+    "2": {
+      "id": "2",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500"
+    },
     "3": {
       "id": "3",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "",
+      "skip": false,
+      "tardy": false
+    },
+    "4": {
+      "id": "4",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "Enter clicked",
+          "event": "keypress",
+          "target": "",
+          "filter": "Enter"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "Презентация серии",
+      "content": "<main class = \"light-gray main-layout\">\n    <div class = \"present-card text-lefted\"> \n        <div class = \"gray\"> Текущй этап </div>\n        <div \n          id = \"stage-title\" \n          class = \"medium_weight twenty-eight_px\"> \n              Финальная индивидуальная серия\n        </div>\n    </div>\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Переход к заданиям этапа произойдет в течении нескольких секунд. Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти сейчас\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>",
+      "_tab": "Content",
+      "timeout": "4000"
+    },
+    "6": {
+      "id": "6",
+      "type": "lab.html.Form",
+      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n\n    Предварительный выбор • \n    ${this.parameters.step}/20 шаг набора •  \n    Этап с напарником <br>\n    \n    <div id=\"time-block\"> \n        <b>Оставшееся время:</b> \n        <span id=\"time\"> 20 </span> секунд \n    </div>\n    \n</header>\n\n\n<main class=\"main-layout\">\n  \n<!-- Элементы вывода -->\n<div class = \"horizontal-section\">\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n\n  <!-- Уровень производства -->\n  <div id = \"info-section-col\">\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-lefted\">\n      <div id = \"prod-level-headline\" class = \"headline\">Уровень производства</div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\">Текущий уровень:</span> \n        <span id = \"production_value\"> 6.000 (+2.000 до цели) </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Цель:</span> \n        8.000 – 10.000\n      </div>\n    </div>\n\n  </div>\n</div>\n\n\n<!-- Элементы ввода --> \n<div class = \"horizontal-section\">\n  <!-- Выбор количества рабочих (тут только часть, логика изменения в Scripts) --> \n  <div id = \"workers-num-block\" class = \"card input-color vertical-centered\">\n    <p class = \"headline\"> Выберите количество рабочих </p>\n    <div class = \"horizontal-centered\">\n        <button id = \"-\" class = \"work-num-element button nineteen_px\">-</button>\n        <span id=\"amount_of_workers\" class=\"work-num-element twenty-four_px\"> 600 </span>\n        <button id=\"+\" class=\"work-num-element button nineteen_px\">+</button>\n    </div>\n  </div>\n\n\n<!-- Уверенность --> \n  <div id = \"conf-block\" class = \"card input-color\">\n\n    <div \n        id = \"conf-headline\" \n        class = \"headline text-centered\"> Оцените уверенность \n    </div>\n\n    <div id = \"confidencer\">\n      <form id = \"confidence_form\" class = \"fifthteen_px\">\n\n        <ul class = 'likert'>\n          <li>\n            <input \n              id = \"conf_1\"\n              type = \"radio\" \n              name =\"confidence\" \n              value=\"1\" \n              required>\n            <label> Не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_2\"\n              type = \"radio\" \n              name = \"confidence\" \n              value=\"2\" \n              required>\n            <label> Скорее не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_3\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"3\" \n              required>\n            <label> Скорее уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_4\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"4\" \n              required>\n            <label> Уверен </label>\n          </li>\n        </ul>\n        \n      </form>\n    </div> \n  </div>\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Вы перейдёте к следующему шагу по истечению времени\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n\n\n\n",
+      "scrollTop": true,
+      "files": [],
+      "responses": [],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// CSS\nvar styleElem = document.head.appendChild(document.createElement(\"style\"));\n\n\n// Синхронизация кол-ва рабочих\nnumber_of_workers = study.parameters.number_of_workers\nvar amount_of_workers = document.getElementById(\"amount_of_workers\");\n\nif (isNaN(number_of_workers)) {\n  amount_of_workers.firstChild.nodeValue = 600\n} else {\n  amount_of_workers.firstChild.nodeValue = number_of_workers\n}\n\n\n// Точки-разделители для тысяч\nfunction number_with_dot(x) {\n    return x.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \".\");\n}\n\n// Синхронизация уровня производства\nproduction_value = study.parameters.production_value\nvar production_label = document.getElementById(\"production_value\")\n\nif (production_value >= 8000 && production_value <= 10000) {\n    var prod_value = \n        number_with_dot(production_value) + \" (отвечает цели)\"\n    production_label.classList.add(\"dark-green\") \n\n} else {\n    var to_target = \n        production_value > 10000 ? 10000 - production_value : 8000 - production_value\n    var prod_value = \n        number_with_dot(production_value) + \n        \" (\" + \n        number_with_dot(to_target) + \n        \" до цели)\"\n    production_label.classList.add(\"dark-yellow\")  \n}\n\nproduction_label.firstChild.nodeValue = prod_value\n\n\n// Таймер\nvar secondsPlaceholder = document.getElementById(\"time\");\nvar totalSeconds = 20;\n\ntimer = setInterval(setTime, 1000);\n\nfunction setTime() {\n  --totalSeconds;\n\n  // Переменная, отображающая был ли сделан выбор или нет\n  var isChosen = \n    !document.getElementById('conf_1').checked &&\n    !document.getElementById('conf_2').checked &&\n    !document.getElementById('conf_3').checked &&\n    !document.getElementById('conf_4').checked \n\n  // Отображение оставшегося времени в интерфейсе\n  if (totalSeconds > -1) { secondsPlaceholder.innerHTML = totalSeconds}\n\n  // Отправка формы уверенности\n  if (totalSeconds == 0) {\n    if (isChosen) {  \n          study.state.confidence = \"NA\"\n      } else {\n          var submit_button = document.getElementById(\"submit_button\");\n          submit_button.click()\n      }\n  }   \n  \n  // Подсветка формы уверенности, если в оставшиеся 5 секунд выбор не был сделан\n  if (totalSeconds < 6) {\n\n    var time_block = document.getElementById(\"time-block\");\n    time_block.classList.add(\"dark-red\");\n\n    var conf_block = document.getElementById(\"conf-block\");\n;\n\n    if (isChosen) {  \n        conf_block.classList.add(\"red-state\")\n        styleElem.innerHTML = \"form .likert:before { background: #EDBDBD }\";\n    } else {\n        conf_block.classList.remove(\"red-state\") \n        styleElem.innerHTML = \"form .likert:before { background: #e0e0e0 }\";}\n  }\n}\n\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8.000 – 10.000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 15000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n});\n\n\n// Функция, срабатывающая при достижении максимального/минимального количества рабочих\nfunction showLimit() {\n  amount_of_workers.classList.add(\"workers_amount_animation\")\n  setTimeout(function() { amount_of_workers.classList.remove(\"workers_amount_animation\") }, 600);\n}\n\n// Функция, для изменения значения поля с количеством рабочих\nfunction myFunction(plus) {\n  var amount_of_workers = document.getElementById(\"amount_of_workers\");\n  var number = parseInt(amount_of_workers.innerHTML);\n\n  if (plus === true ) {\n    if (number < 1200) {\n      number = number + 100\n    } else { \n        showLimit()\n     }} \n    \n  else {\n    if (number > 100) {\n      number = number - 100} else { \n        showLimit()\n    }}\n  \n  amount_of_workers.firstChild.nodeValue = number;\n}\n\n// Привязка функции к нажатию на кнопку \"+\"\nconst pl = document.getElementById(\"+\");\npl.addEventListener(\"click\", () => { myFunction(plus = true); });\n\n\n// Привязка функции к нажатию на кнопку \"-\"\nconst ml = document.getElementById(\"-\");\nml.addEventListener(\"click\", () => { myFunction(plus = false); });\n\n\n// Отвязка enter от сабмита\nenterPress = function(event) {\n    if (event.code === 'Enter') {\n      event.preventDefault();\n      return false;\n  }\n}\n\ndocument.addEventListener('keypress', enterPress, true)"
+        },
+        {
+          "title": "",
+          "message": "end",
+          "code": "// Очистка/обнуление зависимостей \n// Таймер\nclearInterval(timer)\n\n// Слушатель enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// График (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// CSS\nvar styleElem = document.head.appendChild(document.createElement(\"style\"));\nstyleElem.innerHTML = \"form .likert:before { background: #e0e0e0 }\";\n\n\n// Cохранение выбора кол-ва работников на 1 шаге\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nstudy.parameters.number_of_workers = parseInt(amount_of_workers.innerHTML)\n\n\n"
+        },
+        {
+          "title": "",
+          "message": "before:prepare",
+          "code": "// Данные для отрисвоки графика\nif (typeof(study.parameters.graph_data) == \"undefined\") {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n}\n\n// Изначалное значение уровня производства\nif (isNaN(study.parameters.production_value)) {\n  study.parameters.production_value = 6000\n}"
+        }
+      ],
+      "title": "Проба фабрики (предварительный выбор)",
+      "_tab": "Scripts",
+      "timeout": "20500"
+    },
+    "7": {
+      "id": "7",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Scripts",
+      "timeout": "500"
+    },
+    "9": {
+      "id": "9",
       "type": "lab.flow.Loop",
       "children": [
-        "4"
+        "14"
       ],
       "templateParameters": {
         "columns": [
@@ -126,15 +307,42 @@
           "code": ""
         }
       ],
-      "title": "Loop",
-      "_tab": "Behavior"
+      "title": "Обучающая серия",
+      "_tab": "Content",
+      "_collapsed": false
     },
-    "4": {
-      "id": "4",
+    "11": {
+      "id": "11",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": ""
+    },
+    "14": {
+      "id": "14",
       "type": "lab.flow.Sequence",
       "children": [
-        "7",
-        "9"
+        "20",
+        "37"
       ],
       "files": [],
       "responses": [
@@ -159,48 +367,14 @@
           "code": ""
         }
       ],
-      "title": "Sequence",
-      "_tab": "Behavior"
+      "title": "Компоненты серии",
+      "_tab": "Behavior",
+      "_collapsed": false
     },
-    "5": {
-      "id": "5",
+    "20": {
+      "id": "20",
       "type": "lab.html.Form",
-      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    Итоги • ${study.parameters.stage} <br>\n</header>\n\n\n<main class=\"main-layout\">\n<!-- Элементы вывода -->\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div>\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-centered\">\n      <div id = \"prod-level-headline\" class = \"headline\"> Результаты </div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\"> Кол-во соответствий: </span> \n        <span id = \"n_right\"> 12/20 </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Доля соответствий: </span> \n        <span id = \"share_right\"> 56% </span>\n      </div>\n    </div>\n\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  На этом всё, нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы выйти из задания\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n",
-      "scrollTop": true,
-      "files": [],
-      "responses": [
-        {
-          "event": "keypress",
-          "filter": "Enter"
-        }
-      ],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [
-        {
-          "title": "",
-          "message": "run",
-          "code": "// Калькуляция финальных резултатов\nstudy.parameters.result = 0\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => {\n  if \n    (item.Уровень_производства >= 8000 && \n    item.Уровень_производства <= 10000) {\n        study.parameters.result = ++study.parameters.result}});\n\n// Отображение финальных резултатов\nvar n_right = document.getElementById(\"n_right\")\nvar share_right = document.getElementById(\"share_right\")\n\nn_right.firstChild.nodeValue = \n  study.parameters.result + '/20'\nshare_right.firstChild.nodeValue = \n  Math.round(study.parameters.result/20*100) + '%'\n\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8.000 – 10.000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 15000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n});\n\n"
-        },
-        {
-          "title": "",
-          "message": "before:prepare",
-          "code": "// Метаданные\nstudy.parameters.stage = \"Тренировочный этап\"\n"
-        }
-      ],
-      "title": "Results",
-      "_tab": "Content",
-      "timeout": ""
-    },
-    "7": {
-      "id": "7",
-      "type": "lab.html.Form",
-      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    ${this.parameters.step}/20 шаг набора • ${study.parameters.stage} <br>\n</header>\n\n<main class=\"main-layout\">\n<!-- Элементы вывода -->\n<div class = \"horizontal-section\">\n\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div id = \"info-section-col\">\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-lefted\">\n      <div id = \"prod-level-headline\" class = \"headline\">Уровень производства</div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\">Текущий уровень:</span> \n        <span id = \"production_value\"> 6.000 (+2.000 до цели) </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Цель:</span> \n        8.000 – 10.000\n      </div>\n    </div>\n\n  </div>\n</div>\n\n\n<!-- Элементы ввода --> \n<div class = \"horizontal-section\">\n  <!-- Выбор количества рабочих (тут только часть, логика изменения в Scripts) --> \n  <div id = \"workers-num-block\" class = \"card input-color vertical-centered\">\n    <p class = \"headline\"> Выберите количество рабочих </p>\n    <div class = \"horizontal-centered\">\n        <button id = \"-\" class = \"work-num-element button nineteen_px\">-</button>\n        <span id=\"amount_of_workers\" class=\"work-num-element twenty-four_px\"> 600 </span>\n        <button id=\"+\" class=\"work-num-element button nineteen_px\">+</button>\n    </div>\n  </div>\n\n\n<!-- Уверенность --> \n  <div id = \"conf-block\" class = \"card input-color\">\n\n    <div \n        id = \"conf-headline\" \n        class = \"headline text-centered\"> Оцените уверенность \n    </div>\n\n    <div id = \"confidencer\">\n      <form id = \"confidence_form\" class = \"fifthteen_px\">\n\n        <ul class = 'likert'>\n          <li>\n            <input \n              id = \"conf_1\"\n              type = \"radio\" \n              name =\"confidence\" \n              value=\"1\" \n              required>\n            <label> Не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_2\"\n              type = \"radio\" \n              name = \"confidence\" \n              value=\"2\" \n              required>\n            <label> Скорее не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_3\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"3\" \n              required>\n            <label> Скорее уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_4\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"4\" \n              required>\n            <label> Уверен </label>\n          </li>\n        </ul>\n        \n      </form>\n    </div> \n  </div>\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы сохранить ответ и перейти дальше\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n\n\n\n",
+      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    ${this.parameters.step}/20 шаг набора •  \n    Финальный этап\n</header>\n\n<main class=\"main-layout\">\n<!-- Элементы вывода -->\n<div class = \"horizontal-section\">\n\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div id = \"info-section-col\">\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-lefted\">\n      <div id = \"prod-level-headline\" class = \"headline\">Уровень производства</div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\">Текущий уровень:</span> \n        <span id = \"production_value\"> 6.000 (+2.000 до цели) </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Цель:</span> \n        8.000 – 10.000\n      </div>\n    </div>\n\n  </div>\n</div>\n\n\n<!-- Элементы ввода --> \n<div class = \"horizontal-section\">\n  <!-- Выбор количества рабочих (тут только часть, логика изменения в Scripts) --> \n  <div id = \"workers-num-block\" class = \"card input-color vertical-centered\">\n    <p class = \"headline\"> Выберите количество рабочих </p>\n    <div class = \"horizontal-centered\">\n        <button id = \"-\" class = \"work-num-element button nineteen_px\">-</button>\n        <span id=\"amount_of_workers\" class=\"work-num-element twenty-four_px\"> 600 </span>\n        <button id=\"+\" class=\"work-num-element button nineteen_px\">+</button>\n    </div>\n  </div>\n\n\n<!-- Уверенность --> \n  <div id = \"conf-block\" class = \"card input-color\">\n\n    <div \n        id = \"conf-headline\" \n        class = \"headline text-centered\"> Оцените уверенность \n    </div>\n\n    <div id = \"confidencer\">\n      <form id = \"confidence_form\" class = \"fifthteen_px\">\n\n        <ul class = 'likert'>\n          <li>\n            <input \n              id = \"conf_1\"\n              type = \"radio\" \n              name =\"confidence\" \n              value=\"1\" \n              required>\n            <label> Не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_2\"\n              type = \"radio\" \n              name = \"confidence\" \n              value=\"2\" \n              required>\n            <label> Скорее не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_3\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"3\" \n              required>\n            <label> Скорее уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_4\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"4\" \n              required>\n            <label> Уверен </label>\n          </li>\n        </ul>\n        \n      </form>\n    </div> \n  </div>\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы сохранить ответ и перейти дальше\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n\n\n\n",
       "scrollTop": true,
       "files": [],
       "responses": [],
@@ -220,19 +394,183 @@
         {
           "title": "",
           "message": "end",
-          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n\n// Cохранение выбора кол-ва работников на 1 шаге\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nif (study.parameters.graph_data[\"values\"].length == 1) {\n  study.parameters.number_of_workers = \n      parseInt(amount_of_workers.innerHTML)\n}\n\n\n// Рандомайзер\nfunction randomInteger(min, max) {\n  let rand = min + Math.random() * (max + 1 - min);\n  return Math.floor(rand)}\n\n\n// Подсчет производительности следющего шага\nrandom_value = randomInteger(-1, 1); \nstudy.parameters.production_value = \n  ((study.parameters.number_of_workers/100 + 1 + random_value) * 1000);\n\n\n// Cохранение выбора кол-ва работников на 2-20 шагах\nif (study.parameters.graph_data[\"values\"].length != 1) {\n  study.parameters.number_of_workers = \n      parseInt(amount_of_workers.innerHTML)}\n\n\n// Подсчет производительности следющего шага\nvar graph_data = study.parameters.graph_data\n\n\n// Конфигурация графика\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n"
+          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников на 1 шаге\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nif (study.parameters.graph_data[\"values\"].length == 1) {\n  study.parameters.number_of_workers = \n      parseInt(amount_of_workers.innerHTML)\n}\n\n\n// Рандомайзер\nfunction randomInteger(min, max) {\n  let rand = min + Math.random() * (max + 1 - min);\n  return Math.floor(rand)}\n\n\n// Подсчет производительности следющего шага\nrandom_value = randomInteger(-1, 1); \nstudy.parameters.production_value = \n  ((study.parameters.number_of_workers/100 + 1 + random_value) * 1000);\n\n\n// Cохранение выбора кол-ва работников на 2-20 шагах\nif (study.parameters.graph_data[\"values\"].length != 1) {\n  study.parameters.number_of_workers = \n      parseInt(amount_of_workers.innerHTML)}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n"
         },
         {
           "title": "",
           "message": "before:prepare",
-          "code": "// Метаданные\nstudy.parameters.stage = \"Тренировочный этап\"\n\n// Данные для отрисвоки графика\nif (typeof(study.parameters.graph_data) == \"undefined\") {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n}\n\n// Изначалное значение уровня производства\nif (isNaN(study.parameters.production_value)) {\n  study.parameters.production_value = 6000\n}"
+          "code": "// Данные для отрисвоки графика\nif (typeof(study.parameters.graph_data) == \"undefined\") {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n}\n\n// Изначалное значение уровня производства\nif (isNaN(study.parameters.production_value)) {\n  study.parameters.production_value = 6000\n}"
         }
       ],
-      "title": "Factory interface, individual",
+      "title": "Проба фабрики",
       "_tab": "Scripts"
     },
-    "9": {
-      "id": "9",
+    "28": {
+      "id": "28",
+      "type": "lab.flow.Loop",
+      "children": [
+        "29"
+      ],
+      "templateParameters": {
+        "columns": [
+          {
+            "name": "step",
+            "type": "string"
+          },
+          {
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            ""
+          ],
+          [
+            "2",
+            ""
+          ],
+          [
+            "3",
+            ""
+          ],
+          [
+            "4",
+            ""
+          ],
+          [
+            "5",
+            ""
+          ],
+          [
+            "6",
+            ""
+          ],
+          [
+            "7",
+            ""
+          ],
+          [
+            "8",
+            ""
+          ],
+          [
+            "9",
+            ""
+          ],
+          [
+            "10",
+            ""
+          ],
+          [
+            "11",
+            ""
+          ],
+          [
+            "12",
+            ""
+          ],
+          [
+            "13",
+            ""
+          ],
+          [
+            "14",
+            ""
+          ],
+          [
+            "15",
+            ""
+          ],
+          [
+            "16",
+            ""
+          ],
+          [
+            "17",
+            ""
+          ],
+          [
+            "18",
+            ""
+          ],
+          [
+            "19",
+            ""
+          ],
+          [
+            "20",
+            ""
+          ]
+        ]
+      },
+      "sample": {
+        "mode": "sequential"
+      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Обучающая серия",
+      "_tab": "Content",
+      "_collapsed": false
+    },
+    "29": {
+      "id": "29",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "38",
+        "39"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Компоненты серии",
+      "_tab": "Content",
+      "_collapsed": false
+    },
+    "31": {
+      "id": "31",
       "type": "lab.html.Screen",
       "files": [],
       "responses": [
@@ -257,18 +595,1234 @@
           "code": ""
         }
       ],
-      "title": "Loader",
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skip": false,
+      "skipCondition": "${this.parameters.stage == \"Обучающая серия №2\"}"
+    },
+    "32": {
+      "id": "32",
+      "type": "lab.flow.Loop",
+      "children": [
+        "33"
+      ],
+      "templateParameters": {
+        "columns": [
+          {
+            "name": "stage",
+            "type": "string"
+          },
+          {
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "rows": [
+          [
+            "Обучающая серия №1",
+            ""
+          ],
+          [
+            "Обучающая серия №2",
+            ""
+          ]
+        ]
+      },
+      "sample": {
+        "mode": "sequential"
+      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "ОБУЧАЮЩИЙ ЭТАП (основная часть)",
+      "_collapsed": true,
+      "_tab": "Content"
+    },
+    "33": {
+      "id": "33",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "40",
+        "1",
+        "28",
+        "41",
+        "31"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Компоненты этапа",
+      "_collapsed": false,
+      "_tab": "Scripts"
+    },
+    "35": {
+      "id": "35",
+      "type": "lab.html.Form",
+      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    Итоги • Финальный этап <br>\n</header>\n\n\n<main class=\"main-layout\">\n<!-- Элементы вывода -->\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div>\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-centered\">\n      <div id = \"prod-level-headline\" class = \"headline\"> Результаты </div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\"> Кол-во соответствий: </span> \n        <span id = \"n_right\"> 12/20 </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Доля соответствий: </span> \n        <span id = \"share_right\"> 56% </span>\n      </div>\n    </div>\n\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Серия закончена. Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти дальше\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n",
+      "scrollTop": true,
+      "files": [],
+      "responses": [
+        {
+          "event": "keypress",
+          "filter": "Enter"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// Калькуляция финальных резултатов\nstudy.parameters.result = 0\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => {\n  if \n    (item.Уровень_производства >= 8000 && \n    item.Уровень_производства <= 10000) {\n        study.parameters.result = ++study.parameters.result}});\n\n// Отображение финальных резултатов\nvar n_right = document.getElementById(\"n_right\")\nvar share_right = document.getElementById(\"share_right\")\n\nn_right.firstChild.nodeValue = \n  study.parameters.result + '/20'\nshare_right.firstChild.nodeValue = \n  Math.round(study.parameters.result/20*100) + '%'\n\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8.000 – 10.000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 15000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n});\n\n"
+        },
+        {
+          "title": "",
+          "message": "end",
+          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n"
+        }
+      ],
+      "title": "Результаты",
+      "_tab": "Scripts",
+      "timeout": ""
+    },
+    "36": {
+      "id": "36",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "${ study.parameters.global_productivity > 0.7 }",
+      "tardy": true
+    },
+    "37": {
+      "id": "37",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Content",
+      "timeout": "500"
+    },
+    "38": {
+      "id": "38",
+      "type": "lab.html.Form",
+      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    ${this.parameters.step}/20 шаг набора •  \n    Обучающий этап\n</header>\n\n<main class=\"main-layout\">\n<!-- Элементы вывода -->\n<div class = \"horizontal-section\">\n\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div id = \"info-section-col\">\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-lefted\">\n      <div id = \"prod-level-headline\" class = \"headline\">Уровень производства</div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\">Текущий уровень:</span> \n        <span id = \"production_value\"> 6.000 (+2.000 до цели) </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Цель:</span> \n        8.000 – 10.000\n      </div>\n    </div>\n\n  </div>\n</div>\n\n\n<!-- Элементы ввода --> \n<div class = \"horizontal-section\">\n  <!-- Выбор количества рабочих (тут только часть, логика изменения в Scripts) --> \n  <div id = \"workers-num-block\" class = \"card input-color vertical-centered\">\n    <p class = \"headline\"> Выберите количество рабочих </p>\n    <div class = \"horizontal-centered\">\n        <button id = \"-\" class = \"work-num-element button nineteen_px\">-</button>\n        <span id=\"amount_of_workers\" class=\"work-num-element twenty-four_px\"> 600 </span>\n        <button id=\"+\" class=\"work-num-element button nineteen_px\">+</button>\n    </div>\n  </div>\n\n\n<!-- Уверенность --> \n  <div id = \"conf-block\" class = \"card input-color\">\n\n    <div \n        id = \"conf-headline\" \n        class = \"headline text-centered\"> Оцените уверенность \n    </div>\n\n    <div id = \"confidencer\">\n      <form id = \"confidence_form\" class = \"fifthteen_px\">\n\n        <ul class = 'likert'>\n          <li>\n            <input \n              id = \"conf_1\"\n              type = \"radio\" \n              name =\"confidence\" \n              value=\"1\" \n              required>\n            <label> Не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_2\"\n              type = \"radio\" \n              name = \"confidence\" \n              value=\"2\" \n              required>\n            <label> Скорее не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_3\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"3\" \n              required>\n            <label> Скорее уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_4\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"4\" \n              required>\n            <label> Уверен </label>\n          </li>\n        </ul>\n        \n      </form>\n    </div> \n  </div>\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы сохранить ответ и перейти дальше\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n\n\n\n",
+      "scrollTop": true,
+      "files": [],
+      "responses": [],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// Синхронизация кол-ва рабочих\nnumber_of_workers = study.parameters.number_of_workers\nvar amount_of_workers = document.getElementById(\"amount_of_workers\");\n\nif (isNaN(number_of_workers)) {\n  amount_of_workers.firstChild.nodeValue = 600\n} else {\n  amount_of_workers.firstChild.nodeValue = number_of_workers\n}\n\n\n// Точки-разделители для тысяч\nfunction number_with_dot(x) {\n    return x.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \".\");\n}\n\n// Синхронизация уровня производства\nproduction_value = study.parameters.production_value\nvar production_label = document.getElementById(\"production_value\")\n\nif (production_value >= 8000 && production_value <= 10000) {\n    var prod_value = \n        number_with_dot(production_value) + \" (отвечает цели)\"\n    production_label.classList.add(\"dark-green\") \n\n} else {\n    var to_target = \n        production_value > 10000 ? 10000 - production_value : 8000 - production_value\n    var prod_value = \n        number_with_dot(production_value) + \n        \" (\" + \n        number_with_dot(to_target) + \n        \" до цели)\"\n    production_label.classList.add(\"dark-yellow\")  \n}\n\nproduction_label.firstChild.nodeValue = prod_value\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8.000 – 10.000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 15000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\nstudy.parameters.spec = spec\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n})\n\n\n// Функция, срабатывающая при достижении максимального/минимального количества рабочих\nfunction showLimit() {\n  amount_of_workers.classList.add(\"workers_amount_animation\")\n  setTimeout(function() { amount_of_workers.classList.remove(\"workers_amount_animation\") }, 600);\n}\n\n// Функция, для изменения значения поля с количеством рабочих\nfunction myFunction(plus) {\n  var amount_of_workers = document.getElementById(\"amount_of_workers\");\n  var number = parseInt(amount_of_workers.innerHTML);\n\n  if (plus === true ) {\n    if (number < 1200) {\n      number = number + 100\n    } else { \n        showLimit()\n     }} \n    \n  else {\n    if (number > 100) {\n      number = number - 100} else { \n        showLimit()\n    }}\n  \n  amount_of_workers.firstChild.nodeValue = number;\n}\n\n// Привязка функции к нажатию на кнопку \"+\"\nconst pl = document.getElementById(\"+\");\npl.addEventListener(\"click\", () => { myFunction(plus = true); });\n\n\n// Привязка функции к нажатию на кнопку \"-\"\nconst ml = document.getElementById(\"-\");\nml.addEventListener(\"click\", () => { myFunction(plus = false); });\n\n\n// Привязка сабмита к enter\nenterPress = function(event) {\n    if (event.code === 'Enter') {\n      var submit_button = document.getElementById(\"submit_button\");\n      submit_button.click()\n  }\n}\n\ndocument.addEventListener('keypress', enterPress, true)\n\n\n\n\n"
+        },
+        {
+          "title": "",
+          "message": "end",
+          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников на 1 шаге\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nif (study.parameters.graph_data[\"values\"].length == 1) {\n  study.parameters.number_of_workers = \n      parseInt(amount_of_workers.innerHTML)\n}\n\n\n// Рандомайзер\nfunction randomInteger(min, max) {\n  let rand = min + Math.random() * (max + 1 - min);\n  return Math.floor(rand)}\n\n\n// Подсчет производительности следющего шага\nrandom_value = randomInteger(-1, 1); \nstudy.parameters.production_value = \n  ((study.parameters.number_of_workers/100 + 1 + random_value) * 1000);\n\n\n// Cохранение выбора кол-ва работников на 2-20 шагах\nif (study.parameters.graph_data[\"values\"].length != 1) {\n  study.parameters.number_of_workers = \n      parseInt(amount_of_workers.innerHTML)}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Обнуление фабрики перед новой серией\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
+        },
+        {
+          "title": "",
+          "message": "before:prepare",
+          "code": "// Данные для отрисвоки графика\nif (typeof(study.parameters.graph_data) == \"undefined\") {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n}\n\n// Изначалное значение уровня производства\nif (isNaN(study.parameters.production_value)) {\n  study.parameters.production_value = 6000\n}"
+        }
+      ],
+      "title": "Проба фабрики",
+      "_tab": "Scripts"
+    },
+    "39": {
+      "id": "39",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "↻ Загрузчик",
       "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
       "_tab": "Scripts",
       "timeout": "500"
+    },
+    "40": {
+      "id": "40",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "Enter clicked",
+          "event": "keypress",
+          "target": "",
+          "filter": "Enter"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "var stage = document.getElementById(\"stage-title\")\nstage.firstChild.nodeValue = this.parameters.stage"
+        }
+      ],
+      "title": "Презентация серии",
+      "content": "<main class = \"light-gray main-layout\">\n    <div class = \"present-card text-lefted\"> \n        <div class = \"gray\"> Текущй этап </div>\n        <div \n          id = \"stage-title\" \n          class = \"medium_weight twenty-eight_px\"> \n              Обучающая серия №1 \n        </div>\n    </div>\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Переход к заданиям этапа произойдет в течении нескольких секунд. Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти сейчас\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>",
+      "_tab": "Content",
+      "timeout": "4000"
+    },
+    "41": {
+      "id": "41",
+      "type": "lab.html.Form",
+      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    Итоги • Обучающий этап <br>\n</header>\n\n\n<main class=\"main-layout\">\n<!-- Элементы вывода -->\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div>\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-centered\">\n      <div id = \"prod-level-headline\" class = \"headline\"> Результаты </div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\"> Кол-во соответствий: </span> \n        <span id = \"n_right\"> 12/20 </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Доля соответствий: </span> \n        <span id = \"share_right\"> 56% </span>\n      </div>\n    </div>\n\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Серия закончена. Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти дальше\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n",
+      "scrollTop": true,
+      "files": [],
+      "responses": [
+        {
+          "event": "keypress",
+          "filter": "Enter"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// Калькуляция финальных резултатов\nstudy.parameters.result = 0\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => {\n  if \n    (item.Уровень_производства >= 8000 && \n    item.Уровень_производства <= 10000) {\n        study.parameters.result = ++study.parameters.result}});\n\n// Отображение финальных резултатов\nvar n_right = document.getElementById(\"n_right\")\nvar share_right = document.getElementById(\"share_right\")\n\nn_right.firstChild.nodeValue = \n  study.parameters.result + '/20'\nshare_right.firstChild.nodeValue = \n  Math.round(study.parameters.result/20*100) + '%'\n\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8.000 – 10.000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 15000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n});\n\n"
+        },
+        {
+          "title": "",
+          "message": "end",
+          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n  study.parameters.number_of_workers = 600\n}"
+        }
+      ],
+      "title": "Результаты",
+      "_tab": "Scripts",
+      "timeout": ""
+    },
+    "42": {
+      "id": "42",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "4",
+        "43",
+        "9",
+        "35"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "ФИНАЛЬНЫЙ ИНДИВИДУАЛЬНЫЙ ЭТАП",
+      "_collapsed": true,
+      "_tab": "Content",
+      "skipCondition": "",
+      "skip": false
+    },
+    "43": {
+      "id": "43",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500",
+      "skipCondition": "",
+      "skip": false,
+      "tardy": false
+    },
+    "44": {
+      "id": "44",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "45",
+        "49",
+        "46",
+        "50"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "ОБУЧАЮЩИЙ ЭТАП (дополнительная часть)",
+      "_collapsed": true,
+      "_tab": "Behavior",
+      "skipCondition": "${ study.parameters.global_productivity > 0.7 } ",
+      "skip": false,
+      "tardy": true
+    },
+    "45": {
+      "id": "45",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "Enter clicked",
+          "event": "keypress",
+          "target": "",
+          "filter": "Enter"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "Презентация серии",
+      "content": "<main class = \"light-gray main-layout\">\n    <div class = \"present-card text-lefted\"> \n        <div class = \"gray\"> Текущй этап </div>\n        <div \n          id = \"stage-title\" \n          class = \"medium_weight twenty-eight_px\"> \n              Обучающая серия №3 \n        </div>\n    </div>\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Переход к заданиям этапа произойдет в течении нескольких секунд. Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти сейчас\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>",
+      "_tab": "Content",
+      "timeout": "4000"
+    },
+    "46": {
+      "id": "46",
+      "type": "lab.flow.Loop",
+      "children": [
+        "47"
+      ],
+      "templateParameters": {
+        "columns": [
+          {
+            "name": "step",
+            "type": "string"
+          },
+          {
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            ""
+          ],
+          [
+            "2",
+            ""
+          ],
+          [
+            "3",
+            ""
+          ],
+          [
+            "4",
+            ""
+          ],
+          [
+            "5",
+            ""
+          ],
+          [
+            "6",
+            ""
+          ],
+          [
+            "7",
+            ""
+          ],
+          [
+            "8",
+            ""
+          ],
+          [
+            "9",
+            ""
+          ],
+          [
+            "10",
+            ""
+          ],
+          [
+            "11",
+            ""
+          ],
+          [
+            "12",
+            ""
+          ],
+          [
+            "13",
+            ""
+          ],
+          [
+            "14",
+            ""
+          ],
+          [
+            "15",
+            ""
+          ],
+          [
+            "16",
+            ""
+          ],
+          [
+            "17",
+            ""
+          ],
+          [
+            "18",
+            ""
+          ],
+          [
+            "19",
+            ""
+          ],
+          [
+            "20",
+            ""
+          ]
+        ]
+      },
+      "sample": {
+        "mode": "sequential"
+      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Обучающая серия",
+      "_tab": "Behavior",
+      "_collapsed": false
+    },
+    "47": {
+      "id": "47",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "48",
+        "2"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Компоненты серии",
+      "_tab": "Behavior",
+      "_collapsed": false
+    },
+    "48": {
+      "id": "48",
+      "type": "lab.html.Form",
+      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    ${this.parameters.step}/20 шаг набора •  \n    Обучающий этап\n</header>\n\n<main class=\"main-layout\">\n<!-- Элементы вывода -->\n<div class = \"horizontal-section\">\n\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div id = \"info-section-col\">\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-lefted\">\n      <div id = \"prod-level-headline\" class = \"headline\">Уровень производства</div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\">Текущий уровень:</span> \n        <span id = \"production_value\"> 6.000 (+2.000 до цели) </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Цель:</span> \n        8.000 – 10.000\n      </div>\n    </div>\n\n  </div>\n</div>\n\n\n<!-- Элементы ввода --> \n<div class = \"horizontal-section\">\n  <!-- Выбор количества рабочих (тут только часть, логика изменения в Scripts) --> \n  <div id = \"workers-num-block\" class = \"card input-color vertical-centered\">\n    <p class = \"headline\"> Выберите количество рабочих </p>\n    <div class = \"horizontal-centered\">\n        <button id = \"-\" class = \"work-num-element button nineteen_px\">-</button>\n        <span id=\"amount_of_workers\" class=\"work-num-element twenty-four_px\"> 600 </span>\n        <button id=\"+\" class=\"work-num-element button nineteen_px\">+</button>\n    </div>\n  </div>\n\n\n<!-- Уверенность --> \n  <div id = \"conf-block\" class = \"card input-color\">\n\n    <div \n        id = \"conf-headline\" \n        class = \"headline text-centered\"> Оцените уверенность \n    </div>\n\n    <div id = \"confidencer\">\n      <form id = \"confidence_form\" class = \"fifthteen_px\">\n\n        <ul class = 'likert'>\n          <li>\n            <input \n              id = \"conf_1\"\n              type = \"radio\" \n              name =\"confidence\" \n              value=\"1\" \n              required>\n            <label> Не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_2\"\n              type = \"radio\" \n              name = \"confidence\" \n              value=\"2\" \n              required>\n            <label> Скорее не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_3\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"3\" \n              required>\n            <label> Скорее уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_4\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"4\" \n              required>\n            <label> Уверен </label>\n          </li>\n        </ul>\n        \n      </form>\n    </div> \n  </div>\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы сохранить ответ и перейти дальше\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n\n\n\n",
+      "scrollTop": true,
+      "files": [],
+      "responses": [],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// Синхронизация кол-ва рабочих\nnumber_of_workers = study.parameters.number_of_workers\nvar amount_of_workers = document.getElementById(\"amount_of_workers\");\n\nif (isNaN(number_of_workers)) {\n  amount_of_workers.firstChild.nodeValue = 600\n} else {\n  amount_of_workers.firstChild.nodeValue = number_of_workers\n}\n\n\n// Точки-разделители для тысяч\nfunction number_with_dot(x) {\n    return x.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \".\");\n}\n\n// Синхронизация уровня производства\nproduction_value = study.parameters.production_value\nvar production_label = document.getElementById(\"production_value\")\n\nif (production_value >= 8000 && production_value <= 10000) {\n    var prod_value = \n        number_with_dot(production_value) + \" (отвечает цели)\"\n    production_label.classList.add(\"dark-green\") \n\n} else {\n    var to_target = \n        production_value > 10000 ? 10000 - production_value : 8000 - production_value\n    var prod_value = \n        number_with_dot(production_value) + \n        \" (\" + \n        number_with_dot(to_target) + \n        \" до цели)\"\n    production_label.classList.add(\"dark-yellow\")  \n}\n\nproduction_label.firstChild.nodeValue = prod_value\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8.000 – 10.000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 15000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n});\n\n\n// Функция, срабатывающая при достижении максимального/минимального количества рабочих\nfunction showLimit() {\n  amount_of_workers.classList.add(\"workers_amount_animation\")\n  setTimeout(function() { amount_of_workers.classList.remove(\"workers_amount_animation\") }, 600);\n}\n\n// Функция, для изменения значения поля с количеством рабочих\nfunction myFunction(plus) {\n  var amount_of_workers = document.getElementById(\"amount_of_workers\");\n  var number = parseInt(amount_of_workers.innerHTML);\n\n  if (plus === true ) {\n    if (number < 1200) {\n      number = number + 100\n    } else { \n        showLimit()\n     }} \n    \n  else {\n    if (number > 100) {\n      number = number - 100} else { \n        showLimit()\n    }}\n  \n  amount_of_workers.firstChild.nodeValue = number;\n}\n\n// Привязка функции к нажатию на кнопку \"+\"\nconst pl = document.getElementById(\"+\");\npl.addEventListener(\"click\", () => { myFunction(plus = true); });\n\n\n// Привязка функции к нажатию на кнопку \"-\"\nconst ml = document.getElementById(\"-\");\nml.addEventListener(\"click\", () => { myFunction(plus = false); });\n\n\n// Привязка сабмита к enter\nenterPress = function(event) {\n    if (event.code === 'Enter') {\n      var submit_button = document.getElementById(\"submit_button\");\n      submit_button.click()\n  }\n}\n\ndocument.addEventListener('keypress', enterPress, true)\n\n\n\n\n"
+        },
+        {
+          "title": "",
+          "message": "end",
+          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников на 1 шаге\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nif (study.parameters.graph_data[\"values\"].length == 1) {\n  study.parameters.number_of_workers = \n      parseInt(amount_of_workers.innerHTML)\n}\n\n\n// Рандомайзер\nfunction randomInteger(min, max) {\n  let rand = min + Math.random() * (max + 1 - min);\n  return Math.floor(rand)}\n\n\n// Подсчет производительности следющего шага\nrandom_value = randomInteger(-1, 1); \nstudy.parameters.production_value = \n  ((study.parameters.number_of_workers/100 + 1 + random_value) * 1000);\n\n\n// Cохранение выбора кол-ва работников на 2-20 шагах\nif (study.parameters.graph_data[\"values\"].length != 1) {\n  study.parameters.number_of_workers = \n      parseInt(amount_of_workers.innerHTML)}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
+        },
+        {
+          "title": "",
+          "message": "before:prepare",
+          "code": "// Метаданные\nstudy.parameters.stage = \"Обучающий этап\"\n\n// Данные для отрисвоки графика\nif (typeof(study.parameters.graph_data) == \"undefined\") {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n}\n\n// Изначалное значение уровня производства\nif (isNaN(study.parameters.production_value)) {\n  study.parameters.production_value = 6000\n}"
+        }
+      ],
+      "title": "Проба фабрики",
+      "_tab": "Scripts"
+    },
+    "49": {
+      "id": "49",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500"
+    },
+    "50": {
+      "id": "50",
+      "type": "lab.html.Form",
+      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    Итоги • Обучающий этап <br>\n</header>\n\n\n<main class=\"main-layout\">\n<!-- Элементы вывода -->\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div>\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-centered\">\n      <div id = \"prod-level-headline\" class = \"headline\"> Результаты </div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\"> Кол-во соответствий: </span> \n        <span id = \"n_right\"> 12/20 </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Доля соответствий: </span> \n        <span id = \"share_right\"> 56% </span>\n      </div>\n    </div>\n\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Серия закончена. Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти дальше\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n",
+      "scrollTop": true,
+      "files": [],
+      "responses": [
+        {
+          "event": "keypress",
+          "filter": "Enter"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// Калькуляция финальных резултатов\nstudy.parameters.result = 0\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => {\n  if \n    (item.Уровень_производства >= 8000 && \n    item.Уровень_производства <= 10000) {\n        study.parameters.result = ++study.parameters.result}});\n\n// Отображение финальных резултатов\nvar n_right = document.getElementById(\"n_right\")\nvar share_right = document.getElementById(\"share_right\")\n\nn_right.firstChild.nodeValue = \n  study.parameters.result + '/20'\nshare_right.firstChild.nodeValue = \n  Math.round(study.parameters.result/20*100) + '%'\n\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8.000 – 10.000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 15000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n});\n\n"
+        },
+        {
+          "title": "",
+          "message": "end",
+          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n}\n"
+        }
+      ],
+      "title": "Результаты",
+      "_tab": "Scripts",
+      "timeout": ""
+    },
+    "51": {
+      "id": "51",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500"
+    },
+    "52": {
+      "id": "52",
+      "type": "lab.flow.Loop",
+      "children": [
+        "53"
+      ],
+      "templateParameters": {
+        "columns": [
+          {
+            "name": "stage",
+            "type": "string"
+          },
+          {
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "rows": [
+          [
+            "Серия с напарником №1",
+            ""
+          ],
+          [
+            "Серия с напарником №2",
+            ""
+          ]
+        ]
+      },
+      "sample": {
+        "mode": "sequential"
+      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "ЭТАП С НАПАРНИКОМ",
+      "_collapsed": true,
+      "_tab": "Content"
+    },
+    "53": {
+      "id": "53",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "54",
+        "55",
+        "56",
+        "60",
+        "61"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Компоненты этапа",
+      "_collapsed": false
+    },
+    "54": {
+      "id": "54",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "Enter clicked",
+          "event": "keypress",
+          "target": "",
+          "filter": "Enter"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "var stage = document.getElementById(\"stage-title\")\nstage.firstChild.nodeValue = this.parameters.stage"
+        }
+      ],
+      "title": "Презентация серии",
+      "content": "<main class = \"light-gray main-layout\">\n    <div class = \"present-card text-lefted\"> \n        <div class = \"gray\"> Текущй этап </div>\n        <div \n          id = \"stage-title\" \n          class = \"medium_weight twenty-eight_px\"> \n              Название серии\n        </div>\n    </div>\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Переход к заданиям этапа произойдет в течении нескольких секунд. Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти сейчас\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>",
+      "_tab": "Content",
+      "timeout": "4000"
+    },
+    "55": {
+      "id": "55",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Content",
+      "timeout": "500"
+    },
+    "56": {
+      "id": "56",
+      "type": "lab.flow.Loop",
+      "children": [
+        "57"
+      ],
+      "templateParameters": {
+        "columns": [
+          {
+            "name": "step",
+            "type": "string"
+          },
+          {
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            ""
+          ],
+          [
+            "2",
+            ""
+          ],
+          [
+            "3",
+            ""
+          ],
+          [
+            "4",
+            ""
+          ],
+          [
+            "5",
+            ""
+          ],
+          [
+            "6",
+            ""
+          ],
+          [
+            "7",
+            ""
+          ],
+          [
+            "8",
+            ""
+          ],
+          [
+            "9",
+            ""
+          ],
+          [
+            "10",
+            ""
+          ],
+          [
+            "11",
+            ""
+          ],
+          [
+            "12",
+            ""
+          ],
+          [
+            "13",
+            ""
+          ],
+          [
+            "14",
+            ""
+          ],
+          [
+            "15",
+            ""
+          ],
+          [
+            "16",
+            ""
+          ],
+          [
+            "17",
+            ""
+          ],
+          [
+            "18",
+            ""
+          ],
+          [
+            "19",
+            ""
+          ],
+          [
+            "20",
+            ""
+          ]
+        ]
+      },
+      "sample": {
+        "mode": "sequential"
+      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Серия с напарником",
+      "_tab": "Content",
+      "_collapsed": false
+    },
+    "57": {
+      "id": "57",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "6",
+        "51",
+        "62",
+        "59",
+        "58",
+        "7"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "Компоненты серии",
+      "_tab": "Content",
+      "_collapsed": false
+    },
+    "58": {
+      "id": "58",
+      "type": "lab.html.Form",
+      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n\n    Финальный выбор • \n    ${this.parameters.step}/20 шаг набора •  \n    Этап с напарником <br>\n    \n    <div id=\"time-block\"> \n        <b>Оставшееся время:</b> \n        <span id=\"time\"> 20 </span> секунд \n    </div>\n    \n</header>\n\n\n<main class=\"main-layout\">\n  \n<!-- Элементы вывода -->\n<div class = \"horizontal-section\">\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div id = \"info-section-col\">\n\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-lefted\">\n\n      <div id = \"prod-level-headline\" class = \"headline\">\n        Уровень производства\n      </div>\n\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\">Текущий уровень:</span> \n        <span id = \"production_value\"> 6.000 (+2.000 до цели) </span>\n      </div>\n\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Цель:</span> \n        8.000 – 10.000\n      </div>\n\n    </div>\n\n    <!-- Предварительный выбор --> \n    <div class = \"card output-color vertical-centered text-lefted\">\n      \n      <div id = \"prem-choice-headline\" class = \"headline\">\n        Предварительный выбор\n      </div>\n\n      <div id = \"prem-response-fabric\"> 700 </div>\n\n    </div>\n\n  </div>\n\n</div>\n\n\n<!-- Элементы ввода --> \n<div class = \"horizontal-section\">\n  <!-- Выбор количества рабочих (тут только часть, логика изменения в Scripts) --> \n  <div id = \"workers-num-block\" class = \"card input-color vertical-centered\">\n    <p class = \"headline\"> Выберите количество рабочих </p>\n    <div class = \"horizontal-centered\">\n        <button id = \"-\" class = \"work-num-element button nineteen_px\">-</button>\n        <span id=\"amount_of_workers\" class=\"work-num-element twenty-four_px\"> 600 </span>\n        <button id=\"+\" class=\"work-num-element button nineteen_px\">+</button>\n    </div>\n  </div>\n\n\n<!-- Уверенность --> \n  <div id = \"conf-block\" class = \"card input-color\">\n\n    <div \n        id = \"conf-headline\" \n        class = \"headline text-centered\"> Оцените уверенность \n    </div>\n\n    <div id = \"confidencer\">\n      <form id = \"confidence_form\" class = \"fifthteen_px\">\n\n        <ul class = 'likert'>\n          <li>\n            <input \n              id = \"conf_1\"\n              type = \"radio\" \n              name =\"confidence\" \n              value=\"1\" \n              required>\n            <label> Не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_2\"\n              type = \"radio\" \n              name = \"confidence\" \n              value=\"2\" \n              required>\n            <label> Скорее не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_3\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"3\" \n              required>\n            <label> Скорее уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_4\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"4\" \n              required>\n            <label> Уверен </label>\n          </li>\n        </ul>\n        \n      </form>\n    </div> \n  </div>\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Вы перейдёте к следующему шагу по истечению времени\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n\n\n\n",
+      "scrollTop": true,
+      "files": [],
+      "responses": [],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// CSS\nvar styleElem = document.head.appendChild(document.createElement(\"style\"));\n\n\n// Синхронизация предварительного выбора кол-ва рабочих \nnumber_of_workers = study.parameters.number_of_workers\nvar amount_of_workers = document.getElementById(\"amount_of_workers\");\nvar prem_response = document.getElementById(\"prem-response-fabric\")\n\namount_of_workers.firstChild.nodeValue = number_of_workers\nprem_response.firstChild.nodeValue = number_of_workers\n\n\n// Точки-разделители для тысяч\nfunction number_with_dot(x) {\n    return x.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \".\");\n}\n\n// Синхронизация уровня производства\nproduction_value = study.parameters.production_value\nvar production_label = document.getElementById(\"production_value\")\n\nif (production_value >= 8000 && production_value <= 10000) {\n    var prod_value = \n        number_with_dot(production_value) + \" (отвечает цели)\"\n    production_label.classList.add(\"dark-green\") \n\n} else {\n    var to_target = \n        production_value > 10000 ? 10000 - production_value : 8000 - production_value\n    var prod_value = \n        number_with_dot(production_value) + \n        \" (\" + \n        number_with_dot(to_target) + \n        \" до цели)\"\n    production_label.classList.add(\"dark-yellow\")  \n}\n\nproduction_label.firstChild.nodeValue = prod_value\n\n\n// Таймер\nvar secondsPlaceholder = document.getElementById(\"time\");\nvar totalSeconds = 10;\n\ntimer = setInterval(setTime, 1000);\n\nfunction setTime() {\n  --totalSeconds;\n\n  // Переменная, отображающая был ли сделан выбор или нет\n  var isChosen = \n    !document.getElementById('conf_1').checked &&\n    !document.getElementById('conf_2').checked &&\n    !document.getElementById('conf_3').checked &&\n    !document.getElementById('conf_4').checked \n\n  // Отображение оставшегося времени в интерфейсе\n  if (totalSeconds > -1) { secondsPlaceholder.innerHTML = totalSeconds}\n\n  // Отправка формы уверенности\n  if (totalSeconds == 0) {\n    if (isChosen) {  \n          study.state.confidence = \"NA\"\n      } else {\n          var submit_button = document.getElementById(\"submit_button\");\n          submit_button.click()\n      }\n  }   \n  \n  // Подсветка формы уверенности, если в оставшиеся 5 секунд выбор не был сделан\n  if (totalSeconds < 6) {\n\n    var time_block = document.getElementById(\"time-block\");\n    time_block.classList.add(\"dark-red\");\n\n    var conf_block = document.getElementById(\"conf-block\");\n;\n\n    if (isChosen) {  \n        conf_block.classList.add(\"red-state\")\n        styleElem.innerHTML = \"form .likert:before { background: #EDBDBD }\";\n    } else {\n        conf_block.classList.remove(\"red-state\") \n        styleElem.innerHTML = \"form .likert:before { background: #e0e0e0 }\";}\n  }\n}\n\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8.000 – 10.000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 15000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n});\n\n\n// Функция, срабатывающая при достижении максимального/минимального количества рабочих\nfunction showLimit() {\n  amount_of_workers.classList.add(\"workers_amount_animation\")\n  setTimeout(function() { amount_of_workers.classList.remove(\"workers_amount_animation\") }, 600);\n}\n\n// Функция, для изменения значения поля с количеством рабочих\nfunction myFunction(plus) {\n  var amount_of_workers = document.getElementById(\"amount_of_workers\");\n  var number = parseInt(amount_of_workers.innerHTML);\n\n  if (plus === true ) {\n    if (number < 1200) {\n      number = number + 100\n    } else { \n        showLimit()\n     }} \n    \n  else {\n    if (number > 100) {\n      number = number - 100} else { \n        showLimit()\n    }}\n  \n  amount_of_workers.firstChild.nodeValue = number;\n}\n\n// Привязка функции к нажатию на кнопку \"+\"\nconst pl = document.getElementById(\"+\");\npl.addEventListener(\"click\", () => { myFunction(plus = true); });\n\n\n// Привязка функции к нажатию на кнопку \"-\"\nconst ml = document.getElementById(\"-\");\nml.addEventListener(\"click\", () => { myFunction(plus = false); });\n\n\n// Отвязка enter от сабмита\nenterPress = function(event) {\n    if (event.code === 'Enter') {\n      event.preventDefault();\n      return false;\n  }\n}\n\ndocument.addEventListener('keypress', enterPress, true)"
+        },
+        {
+          "title": "",
+          "message": "end",
+          "code": "// Очистка/обнуление зависимостей \n// Таймер\nclearInterval(timer)\n\n// Слушатель enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// График (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// CSS\nvar styleElem = document.head.appendChild(document.createElement(\"style\"));\nstyleElem.innerHTML = \"form .likert:before { background: #e0e0e0 }\";\n\n\n// Cохранение выбора кол-ва работников на 1 шаге\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nif (study.parameters.graph_data[\"values\"].length == 1) {\n\n  input_value = parseInt(amount_of_workers.innerHTML)\n  study.parameters.number_of_workers = input_value\n  study.parameters.last_number_of_workers = input_value\n\n}\n\n\n// Рандомайзер\nfunction randomInteger(min, max) {\n  let rand = min + Math.random() * (max + 1 - min);\n  return Math.floor(rand)}\n\n\n// Подсчет производительности следющего шага\nrandom_value = randomInteger(-1, 1); \nstudy.parameters.production_value = \n  ((study.parameters.last_number_of_workers/100 + 1 + random_value) * 1000);\n\n\n// Cохранение выбора кол-ва работников на 2-20 шагах\nif (study.parameters.graph_data[\"values\"].length != 1) {\n\n  input_value = parseInt(amount_of_workers.innerHTML)\n  study.parameters.number_of_workers = input_value\n  study.parameters.last_number_of_workers = input_value\n  \n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Индикация последнего шага для обнуления фабрики\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
+        }
+      ],
+      "title": "Проба фабрики (финальный выбор)",
+      "_tab": "Scripts",
+      "timeout": "10500"
+    },
+    "59": {
+      "id": "59",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Behavior",
+      "timeout": "500"
+    },
+    "60": {
+      "id": "60",
+      "type": "lab.html.Form",
+      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    Итоги • Этап с напарником <br>\n</header>\n\n\n<main class=\"main-layout\">\n<!-- Элементы вывода -->\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div>\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-centered\">\n      <div id = \"prod-level-headline\" class = \"headline\"> Результаты </div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\"> Кол-во соответствий: </span> \n        <span id = \"n_right\"> 12/20 </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Доля соответствий: </span> \n        <span id = \"share_right\"> 56% </span>\n      </div>\n    </div>\n\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Серия закончена. Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти дальше\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n",
+      "scrollTop": true,
+      "files": [],
+      "responses": [
+        {
+          "event": "keypress",
+          "filter": "Enter"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// Калькуляция финальных резултатов\nstudy.parameters.result = 0\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => {\n  if \n    (item.Уровень_производства >= 8000 && \n    item.Уровень_производства <= 10000) {\n        study.parameters.result = ++study.parameters.result}});\n\n// Отображение финальных резултатов\nvar n_right = document.getElementById(\"n_right\")\nvar share_right = document.getElementById(\"share_right\")\n\nn_right.firstChild.nodeValue = \n  study.parameters.result + '/20'\nshare_right.firstChild.nodeValue = \n  Math.round(study.parameters.result/20*100) + '%'\n\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8.000 – 10.000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 15000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n});\n\n"
+        },
+        {
+          "title": "",
+          "message": "end",
+          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n  study.parameters.number_of_workers = 600\n}"
+        }
+      ],
+      "title": "Результаты",
+      "_tab": "Scripts",
+      "timeout": ""
+    },
+    "61": {
+      "id": "61",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": ""
+        }
+      ],
+      "title": "↻ Загрузчик",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Content",
+      "timeout": "500",
+      "skip": false,
+      "skipCondition": "${this.parameters.stage == \"Серия с напарником №2\"}"
+    },
+    "62": {
+      "id": "62",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// Таймер\nvar secondsPlaceholder = document.getElementById(\"time\");\nvar totalSeconds = 10;\n\ntimer = setInterval(setTime, 1000);\n\nfunction setTime() {\n  --totalSeconds\n\n  if (totalSeconds > -1) { secondsPlaceholder.innerHTML = totalSeconds}\n  if (totalSeconds < 6) {\n      var time_block = document.getElementById(\"time-block\")\n      time_block.classList.add(\"dark-red\")\n  }\n}\n\n\n// Синхронизация кол-ва рабочих\nnumber_of_workers = study.parameters.number_of_workers\nvar amount_of_workers = document.getElementById(\"prem-response\")\namount_of_workers.firstChild.nodeValue = number_of_workers\n\n\n// Точки-разделители для тысяч\nfunction number_with_dot(x) {\n    return x.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \".\");\n}\n\n// Синхронизация уровня производства\nproduction_value = study.parameters.production_value\nvar production_label = document.getElementById(\"production_value\")\n\nif (production_value >= 8000 && production_value <= 10000) {\n    var prod_value = \n        number_with_dot(production_value) + \" (отвечает цели)\"\n    production_label.classList.add(\"dark-green\") \n\n} else {\n    var to_target = \n        production_value > 10000 ? 10000 - production_value : 8000 - production_value\n    var prod_value = \n        number_with_dot(production_value) + \n        \" (\" + \n        number_with_dot(to_target) + \n        \" до цели)\"\n    production_label.classList.add(\"dark-yellow\")  \n}\n\nproduction_label.firstChild.nodeValue = prod_value"
+        },
+        {
+          "title": "",
+          "message": "end",
+          "code": "// Очистка/обнуление зависимостей\n// Таймер\nclearInterval(timer)"
+        }
+      ],
+      "title": "Обсуждение",
+      "content": "<!-- Шапка --> \n<header class = \"header-footer-style\">\n\n    Обсуждение • \n    ${this.parameters.step}/20 шаг набора •  \n    Этап с напарником <br>\n    \n    <div id = \"time-block\"> \n        <b>Оставшееся время:</b> \n        <span id=\"time\"> 10 </span> секунд \n    </div>\n    \n</header>\n\n\n<main class=\"main-layout content-vertical-center\">\n\n  <!-- Блок, информирующий о текущей задаче --> \n  <div id = \"discussion-block\" class = \"card text-centered\">\n\n        <div id = \"prod-level-headline-dis\" class = \"headline\">\n          Период обсуждения\n        </div>\n\n        <div id = \"task-headline\" class = \"fifthteen_px\"> \n          В данный момент вам необходимо обсудить задание с напарником \n        </div>\n\n  </div>\n\n\n  <!-- Уровень производства + Предварительный выбор -->\n\n    <div id = \"info-section-row\">\n\n      <!-- Уровень производства --> \n      <div id \"prod-level\" class = \"card output-color text-lefted\">\n\n        <div id = \"prod-level-headline\" class = \"headline\">\n          Уровень производства\n        </div>\n\n        <div class = \"fifthteen_px\"\"> \n          <span class = \"medium_weight\">Текущий уровень:</span> \n          <span id = \"production_value\"> 6.000 (+2.000 до цели) </span>\n        </div>\n\n        <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n          <span class = \"medium_weight\"> Цель:</span> \n          8.000 – 10.000\n        </div>\n\n      </div>\n\n\n      <!-- Предварительный выбор --> \n      <div class = \"card output-color vertical-centered text-lefted\">\n        <div id = \"prem-choice-headline-dis\" class = \"headline\"> Предварительный выбор </div>\n        <div id = \"prem-response\"> 700 </div>\n      </div>\n    </div>\n  </div>\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Вы перейдёте к следующему шагу по истечению времени\n</footer>\n\n",
+      "_tab": "Behavior",
+      "timeout": "10500",
+      "tardy": false
     },
     "root": {
       "id": "root",
       "title": "root",
       "type": "lab.flow.Sequence",
       "children": [
+        "32",
+        "36",
+        "44",
+        "11",
+        "52",
         "3",
-        "5"
+        "42"
       ],
       "parameters": [],
       "plugins": [
@@ -277,7 +1831,7 @@
         }
       ],
       "metadata": {
-        "title": "Factory task [version-1.4]",
+        "title": "Factory task [1.5] (Только задания)",
         "description": "This task is stimulus material for research in psychology. The topic: how does the format of communication (chat vs video+voice) affect epistemic trust.",
         "repository": "",
         "contributors": "Nikita Sharin (nasharin@edu.hse.ru)"
@@ -296,7 +1850,7 @@
         "source": "library"
       },
       "style.css": {
-        "content": "data:text/css,%2F*%20%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8%20*%2F%0A%0A%2F*%20%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BB%D0%B5%D0%B9%D0%B1%D0%BB%D0%B0%20%D1%81%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%D0%BC%20%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D1%85%20%D0%BF%D1%80%D0%B8%20%D0%BF%D1%80%D0%B5%D0%B2%D1%8B%D1%88%D0%B5%D0%BD%D0%B8%D0%B8%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%2F%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20*%2F%0A.workers_amount_animation%20%7B%0A%20%20animation-name%3A%20color-change%3B%0A%20%20animation-duration%3A%200.6s%3B%0A%7D%0A%0A%40keyframes%20color-change%20%7B%0A%20%200%25%20%20%20%7Bcolor%3A%20rgb(0%2C%200%2C%200)%3B%7D%0A%20%2050%25%20%20%7Bcolor%3A%20rgb(186%2C%2069%2C%2069)%3B%7D%0A%20%20100%25%20%7Bcolor%3A%20black%3B%7D%0A%7D%0A%0A%0A%2F*%20%D0%97%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D1%87%D0%B8%D0%BA%20*%2F%0A%0A.loader%20%7B%0A%20%20border%3A%2012px%20solid%20%23f3f3f3%3B%20%2F*%20Light%20grey%20*%2F%0A%20%20border-top%3A%2012px%20solid%20%233498db%3B%20%2F*%20Blue%20*%2F%0A%20%20border-radius%3A%2050%25%3B%0A%20%20width%3A%2080px%3B%0A%20%20height%3A%2080px%3B%0A%20%20animation%3A%20spin%202s%20linear%20infinite%3B%0A%7D%0A%0A%40keyframes%20spin%20%7B%0A%20%200%25%20%7B%20transform%3A%20rotate(0deg)%3B%20%7D%0A%20%20100%25%20%7B%20transform%3A%20rotate(360deg)%3B%20%7D%0A%7D%0A%0A%0A%2F*%20%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D1%85%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20*%2F%0A%0A%23prem-response%20%7B%0A%20%20padding-bottom%3A%208px%3B%0A%20%20font-size%3A%2047px%3B%0A%7D%0A%0A%23prem-response-dis%20%7B%0A%20%20padding-bottom%3A%203px%3B%0A%20%20font-size%3A%2045px%3B%0A%7D%0A%0A%23chart-card%20%7B%0A%20%20padding-top%3A%2015px%3B%0A%20%20padding-bottom%3A%2010px%0A%7D%0A%0A%23info-section-col%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20align-items%3A%20left%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A%23info-section-row%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A%23prod-level%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A%23discussion-block%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20589px%3B%0A%7D%0A%0A%23workers-num-block%20%7B%0A%20%20padding-left%3A%2039px%3B%0A%20%20padding-right%3A%2039px%3B%0A%7D%0A%0A%23confidence-block%20%7B%0A%20%20margin-bottom%3A%2018px%3B%0A%7D%0A%0A%23conf-block%20%7B%0A%20%20width%3A%20580px%3B%20%0A%20%20padding-bottom%3A%2010px%3B%0A%7D%0A%0A%2F*%20%D0%97%D0%B0%D0%B3%D0%B0%D0%BB%D0%BE%D0%B2%D0%BA%D0%B8%20*%2F%0A%0A%23prod-level-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%0A%20%20padding-bottom%3A%2014px%0A%7D%0A%0A%23prod-level-headline-dis%20%7B%0A%20%20padding-top%3A%2016px%3B%0A%20%20padding-bottom%3A%2010px%0A%7D%0A%0A%23target-level-headline%20%7B%0A%20%20padding-bottom%3A%2018px%3B%20%0A%20%20padding-top%3A%205px%3B%0A%7D%0A%0A%23prem-choice-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%2013px%0A%7D%0A%0A%23prem-choice-headline-dis%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%209px%0A%7D%0A%0A%23confidence-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%208px%3B%0A%7D%0A%0A%23conf-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%204px%3B%0A%7D%0A%0A%23task-headline%20%7B%0A%20%20padding-bottom%3A%2019.5px%3B%20%0A%7D%0A%0A%0A%2F*%20%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D1%8B%D0%B5%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20*%2F%0A%0Abody%20%7B%20font-family%3A%20'Roboto'%2C%20sans-serif%20%7D%0Aform%20%7B%20text-align%3A%20left%20%7D%0A%0A.header-footer-style%20%7B%0A%20%20background-color%3A%20%23F6F6F6%3B%20%0A%20%20font-size%3A%2016px%3B%0A%7D%0A%0A%0A%2F*%20%D0%A8%D1%80%D0%B8%D1%84%D1%82%D1%8B%20*%2F%0A%0A.headline%20%7B%0A%20%20font-size%3A%2016px%3B%0A%20%20font-weight%3A%20bold%3B%0A%7D%0A%0A.fourteen_px%20%7B%20font-size%3A%2014px%20%7D%0A.fifthteen_px%20%7B%20font-size%3A%2015px%20%7D%0A.nineteen_px%20%7B%20font-size%3A%2019px%20%7D%0A.twenty-four_px%20%7B%20font-size%3A%2024px%20%7D%0A.medium_weight%20%7B%20font-weight%3A%20500%20%7D%0A%0A%0A%2F*%20%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D0%B0%D0%BD%D0%B5%D0%BB%D0%B8%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%B0%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D1%85%22%20*%2F%0A%0A.work-num-element%20%7B%0A%20%20padding%3A%208px%3B%0A%20%20margin-top%3A%200px%3B%0A%20%20margin-right%3A%204px%3B%0A%20%20margin-bottom%3A%2020px%3B%0A%20%20margin-left%3A%204px%3B%0A%7D%0A%0A%2F*%20%D0%9A%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0%20*%2F%0A%0A.button%20%7B%0A%20%20background-color%3A%20rgb(255%2C%20255%2C%20255)%3B%0A%09width%3A%2048px%3B%0A%20%20height%3A%2048px%3B%0A%20%20border-radius%3A%2040px%3B%0A%20%20transition%3A%20.1s%20ease-in-out%200s%3B%0A%7D%0A%0A.button%3Ahover%7B%0A%20%20cursor%3A%20pointer%3B%0A%20%20transform%3A%20scale(1.1)%3B%0A%20%20background-color%3A%20%23F6F6F6%3B%0A%7D%0A%0A.button%3Adisabled%7B%0A%20%20opacity%3A%200.4%3B%0A%7D%0A%0A%2F*%20%D0%9A%D0%B0%D1%80%D1%82%D0%BE%D1%87%D0%BA%D0%B0%20*%2F%0A%0A.card%20%7B%20%20%0A%20%20padding-left%3A%2020px%3B%0A%20%20padding-right%3A%2020px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20border-color%3A%20%23E6E8EA%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%3B%0A%20transition%3A%20.1s%20ease-in-out%200s%3B%0A%7D%0A%0A.card%3Ainvalid%20%7B%20%20%0A%20%20border-color%3A%20rgb(207%2C%2083%2C%2083)%3B%0A%20%20background-color%3A%20%20rgb(239%2C%20213%2C%20213)%3B%0A%7D%0A%0A%0A%2F*%20%D0%9B%D0%B8%D0%BA%D0%B5%D1%80%D1%82-%D1%88%D0%BA%D0%B0%D0%BB%D0%B0%20*%2F%0A%0Aform%20.likert%3Abefore%20%7B%0A%20%20content%3A%20''%3B%0A%20%20position%3Arelative%3B%0A%20%20top%3A%2018px%3B%0A%20%20left%3A%2013%25%3B%0A%20%20display%3A%20block%3B%0A%20%20background-color%3A%23e0e0e0%3B%0A%20%20height%3A%202px%3B%0A%20%20width%3A%2074%25%3B%0A%7D%0A%0Aform%20.likert%20li%20%7B%0A%20%20display%3A%20inline-block%3B%0A%20%20width%3A%2024%25%3B%0A%20%20text-align%3A%20center%3B%0A%20%20vertical-align%3A%20top%3B%0A%7D%0A%0Aform%20.likert%20ul%20%7B%0A%20%20padding-inline-start%3A%205px%3B%0A%20%20padding-left%3A%200px%3B%20%0A%20%20margin-top%3A%200px%3B%20%0A%20%20margin-bottom%3A%2012px%3B%0A%7D%0A%0Aform%20.likert%20li%20input%5Btype%20%3D%20radio%5D%20%7B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20relative%3B%0A%20%20top%3A%200%3B%0A%20%20left%3A%2050%25%3B%0A%20%20margin-left%3A%20-6px%3B%0A%20%20height%3A%2018px%3B%0A%20%20width%3A%2020%25%3B%0A%7D%0A%0Aform%20.likert%20%20label%20%7B%0A%20%20%20margin-left%3A%2011px%3B%0A%20%20%20font-size%3A%2014px%3B%0A%7D%0A%0A.likert%20%7B%0A%20%20padding-left%3A%205px%3B%20%0A%20%20margin-top%3A%200px%3B%20%0A%20%20margin-bottom%3A%2012px%0A%7D%0A%0A%0A%2F*%20%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20*%2F%0A%0A.main-layout%20%7B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%20%20gap%3A%2020px%3B%0A%20%20justify-content%3A%20center%3B%0A%7D%0A%0A.horizontal-section%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A.horizontal-centered%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%7D%0A%0A.vertical-centered%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20align-items%3A%20center%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A.vertical-lefted%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A%0A%2F*%20%D0%92%D1%8B%D1%80%D0%B0%D0%B2%D0%BD%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%B0%20*%2F%0A%0A.text-lefted%20%7B%0A%20display%3A%20block%3B%0A%20text-align%3A%20left%3B%0A%7D%0A%0A.text-centered%20%7B%0A%20display%3A%20block%3B%0A%20text-align%3A%20center%3B%0A%7D%0A%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D1%88%D1%80%D0%B8%D1%84%D1%82%D1%8B%20*%2F%0A%0A.dark-gray%20%7B%20color%3A%20gray%20%7D%0A.dark-red%20%7B%20color%3A%20firebrick%20%7D%0A.dark-yellow%20%7B%20color%3A%20%23C17F29%20%7D%0A.dark-green%20%7B%20color%3A%20rgb(60%2C%20131%2C%2039)%20%7D%0A%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D1%84%D0%BE%D0%BD%20*%2F%0A%0A.weak-red%20%7B%20background-color%3A%20rgb(239%2C%20165%2C%20165)%20%7D%0A.input-color%20%7B%20background-color%3A%20%23F6F6F6%20%7D%0A.output-color%20%7B%20background-color%3A%20%23F7FAFC%20%7D%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B%20*%2F%0A%0A.red-state%20%7B%0A%20%20border-color%3A%20rgb(207%2C%2083%2C%2083)%3B%0A%20%20background-color%3A%20%20rgb(243%2C%20227%2C%20227)%3B%0A%7D",
+        "content": "data:text/css,%2F*%20%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8%20*%2F%0A%0A%2F*%20%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BB%D0%B5%D0%B9%D0%B1%D0%BB%D0%B0%20%D1%81%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%D0%BC%20%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D1%85%20%D0%BF%D1%80%D0%B8%20%D0%BF%D1%80%D0%B5%D0%B2%D1%8B%D1%88%D0%B5%D0%BD%D0%B8%D0%B8%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%2F%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20*%2F%0A.workers_amount_animation%20%7B%0A%20%20animation-name%3A%20color-change%3B%0A%20%20animation-duration%3A%200.6s%3B%0A%7D%0A%0A%40keyframes%20color-change%20%7B%0A%20%200%25%20%20%20%7Bcolor%3A%20rgb(0%2C%200%2C%200)%3B%7D%0A%20%2050%25%20%20%7Bcolor%3A%20rgb(186%2C%2069%2C%2069)%3B%7D%0A%20%20100%25%20%7Bcolor%3A%20black%3B%7D%0A%7D%0A%0A%0A%2F*%20%D0%97%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D1%87%D0%B8%D0%BA%20*%2F%0A%0A.loader%20%7B%0A%20%20border%3A%2012px%20solid%20%23f3f3f3%3B%20%2F*%20Light%20grey%20*%2F%0A%20%20border-top%3A%2012px%20solid%20%233498db%3B%20%2F*%20Blue%20*%2F%0A%20%20border-radius%3A%2050%25%3B%0A%20%20width%3A%2080px%3B%0A%20%20height%3A%2080px%3B%0A%20%20animation%3A%20spin%202s%20linear%20infinite%3B%0A%7D%0A%0A%40keyframes%20spin%20%7B%0A%20%200%25%20%7B%20transform%3A%20rotate(0deg)%3B%20%7D%0A%20%20100%25%20%7B%20transform%3A%20rotate(360deg)%3B%20%7D%0A%7D%0A%0A%0A%2F*%20%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D1%85%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20*%2F%0A%0A%23stage-title%20%7B%0A%20%20margin-top%3A%205px%3B%0A%7D%0A%0A%23prem-response%20%7B%0A%20%20padding-bottom%3A%203px%3B%0A%20%20font-size%3A%2051px%3B%0A%7D%0A%0A%23prem-response-fabric%20%7B%0A%20%20padding-top%3A%202px%3B%0A%20%20padding-bottom%3A%203px%3B%0A%20%20font-size%3A%2052px%3B%0A%7D%0A%0A%23prem-response-dis%20%7B%0A%20%20padding-bottom%3A%203px%3B%0A%20%20font-size%3A%2045px%3B%0A%7D%0A%0A%23chart-card%20%7B%0A%20%20padding-top%3A%2015px%3B%0A%20%20padding-bottom%3A%2010px%0A%7D%0A%0A%23info-section-col%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20align-items%3A%20left%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A%23info-section-row%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A%23prod-level%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A%23discussion-block%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20585px%3B%0A%7D%0A%0A%23workers-num-block%20%7B%0A%20%20padding-left%3A%2039px%3B%0A%20%20padding-right%3A%2039px%3B%0A%7D%0A%0A%23confidence-block%20%7B%0A%20%20margin-bottom%3A%2018px%3B%0A%7D%0A%0A%23conf-block%20%7B%0A%20%20width%3A%20580px%3B%20%0A%20%20padding-bottom%3A%208px%3B%0A%7D%0A%0A%2F*%20%D0%97%D0%B0%D0%B3%D0%B0%D0%BB%D0%BE%D0%B2%D0%BA%D0%B8%20*%2F%0A%0A%23prod-level-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%0A%20%20padding-bottom%3A%2016px%0A%7D%0A%0A%23prod-level-headline-dis%20%7B%0A%20%20padding-top%3A%2019px%3B%0A%20%20padding-bottom%3A%2010px%0A%7D%0A%0A%23target-level-headline%20%7B%0A%20%20padding-bottom%3A%2018px%3B%20%0A%20%20padding-top%3A%205px%3B%0A%7D%0A%0A%23prem-choice-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%204px%0A%7D%0A%0A%23prem-choice-headline-dis%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%205px%0A%7D%0A%0A%23confidence-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%208px%3B%0A%7D%0A%0A%23conf-headline%20%7B%0A%20%20padding-top%3A%2016px%3B%20%0A%20%20padding-bottom%3A%206px%3B%0A%7D%0A%0A%23task-headline%20%7B%0A%20%20padding-bottom%3A%2020px%3B%20%0A%7D%0A%0A%0A%2F*%20%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D1%8B%D0%B5%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20*%2F%0A%0Abody%20%7B%20font-family%3A%20'Roboto'%2C%20sans-serif%20%7D%0Aform%20%7B%20text-align%3A%20left%20%7D%0A%0A.header-footer-style%20%7B%0A%20%20background-color%3A%20%23F6F6F6%3B%20%0A%20%20font-size%3A%2016px%3B%0A%7D%0A%0A%0A%2F*%20%D0%A8%D1%80%D0%B8%D1%84%D1%82%D1%8B%20*%2F%0A%0A.headline%20%7B%0A%20%20font-size%3A%2016px%3B%0A%20%20font-weight%3A%20bold%3B%0A%7D%0A%0A.fourteen_px%20%7B%20font-size%3A%2014px%20%7D%0A.fifthteen_px%20%7B%20font-size%3A%2015px%20%7D%0A.nineteen_px%20%7B%20font-size%3A%2019px%20%7D%0A.twenty-four_px%20%7B%20font-size%3A%2024px%20%7D%0A.twenty-eight_px%20%7B%20font-size%3A%2028px%20%7D%0A%0A.medium_weight%20%7B%20font-weight%3A%20500%20%7D%0A.light_weight%20%7B%20font-weight%3A%20500%20%7D%0A%0A%0A%2F*%20%22%D0%AD%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D0%B0%D0%BD%D0%B5%D0%BB%D0%B8%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%B0%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0%20%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D1%85%22%20*%2F%0A%0A.work-num-element%20%7B%0A%20%20padding%3A%208px%3B%0A%20%20margin-top%3A%200px%3B%0A%20%20margin-right%3A%204px%3B%0A%20%20margin-bottom%3A%2020px%3B%0A%20%20margin-left%3A%204px%3B%0A%7D%0A%0A%2F*%20%D0%9A%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0%20*%2F%0A%0A.button%20%7B%0A%20%20background-color%3A%20rgb(255%2C%20255%2C%20255)%3B%0A%09width%3A%2047.5px%3B%0A%20%20border-radius%3A%2040px%3B%0A%20%20transition%3A%20.1s%20ease-in-out%200s%3B%0A%7D%0A%0A.button%3Ahover%7B%0A%20%20cursor%3A%20pointer%3B%0A%20%20transform%3A%20scale(1.1)%3B%0A%20%20background-color%3A%20%23F6F6F6%3B%0A%7D%0A%0A.button%3Adisabled%7B%0A%20%20opacity%3A%200.4%3B%0A%7D%0A%0A%2F*%20%D0%9A%D0%B0%D1%80%D1%82%D0%BE%D1%87%D0%BA%D0%B8%20*%2F%0A%0A.card%20%7B%20%20%0A%20%20padding-left%3A%2020px%3B%0A%20%20padding-right%3A%2020px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20border-color%3A%20%23E6E8EA%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%3B%0A%20transition%3A%20.1s%20ease-in-out%200s%3B%0A%7D%0A%0A.card%3Ainvalid%20%7B%20%20%0A%20%20border-color%3A%20rgb(207%2C%2083%2C%2083)%3B%0A%20%20background-color%3A%20%20rgb(239%2C%20213%2C%20213)%3B%0A%7D%0A%0A.present-card%20%7B%20%20%0A%20%20padding%3A%2046px%3B%0A%20%20border-style%3A%20solid%3B%0A%20%20background-color%3A%20%23FFFFFF%3B%0A%20%20border-color%3A%20%23E6E8EA%3B%0A%20%20border-radius%3A%2012px%3B%0A%20%20border-width%3A%201.5px%3B%0A%7D%0A%0A%0A%2F*%20%D0%9B%D0%B8%D0%BA%D0%B5%D1%80%D1%82-%D1%88%D0%BA%D0%B0%D0%BB%D0%B0%20*%2F%0A%0Aform%20.likert%3Abefore%20%7B%0A%20%20content%3A%20''%3B%0A%20%20position%3Arelative%3B%0A%20%20top%3A%2018px%3B%0A%20%20left%3A%2013%25%3B%0A%20%20display%3A%20block%3B%0A%20%20background-color%3A%23e0e0e0%3B%0A%20%20height%3A%202px%3B%0A%20%20width%3A%2074%25%3B%0A%7D%0A%0Aform%20.likert%20li%20%7B%0A%20%20display%3A%20inline-block%3B%0A%20%20width%3A%2024%25%3B%0A%20%20text-align%3A%20center%3B%0A%20%20vertical-align%3A%20top%3B%0A%7D%0A%0Aform%20.likert%20ul%20%7B%0A%20%20padding-inline-start%3A%200px%3B%0A%20%20padding-left%3A%205px%3B%20%0A%20%20margin-top%3A%200px%3B%20%0A%20%20margin-bottom%3A%2012px%3B%0A%7D%0A%0Aform%20.likert%20li%20input%5Btype%20%3D%20radio%5D%20%7B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20relative%3B%0A%20%20top%3A%200%3B%0A%20%20left%3A%2050%25%3B%0A%20%20margin-left%3A%20-6px%3B%0A%20%20height%3A%2018px%3B%0A%20%20width%3A%2020%25%3B%0A%7D%0A%0A.likert%20%7B%0A%20%20padding-left%3A%205px%3B%20%0A%20%20margin-top%3A%200px%3B%20%0A%20%20margin-bottom%3A%2012px%0A%7D%0A%0A%2F*%20%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20*%2F%0A%0A.main-layout%20%7B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%20%20gap%3A%2020px%3B%0A%20%20justify-content%3A%20center%3B%0A%7D%0A%0A.horizontal-section%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20gap%3A%2020px%3B%0A%7D%0A%0A.horizontal-centered%20%7B%0A%20%20width%3A%20fit-content%3B%0A%20%20height%3A%20fit-content%3B%0A%20%20flex-direction%3A%20row%3B%0A%20%20display%3A%20flex%3B%0A%20%20align-items%3A%20center%3B%0A%7D%0A%0A.vertical-centered%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20align-items%3A%20center%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A.vertical-lefted%20%7B%0A%20%20height%3A%20fit-content%3B%0A%20%20width%3A%20fit-content%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20display%3A%20flex%3B%0A%7D%0A%0A%0A%2F*%20%D0%92%D1%8B%D1%80%D0%B0%D0%B2%D0%BD%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%B0%20*%2F%0A%0A.text-lefted%20%7B%0A%20display%3A%20block%3B%0A%20text-align%3A%20left%3B%0A%7D%0A%0A.text-centered%20%7B%0A%20display%3A%20block%3B%0A%20text-align%3A%20center%3B%0A%7D%0A%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D1%88%D1%80%D0%B8%D1%84%D1%82%D1%8B%20*%2F%0A%0A.dark-red%20%7B%20color%3A%20firebrick%20%7D%0A.dark-yellow%20%7B%20color%3A%20%23C17F29%20%7D%0A.dark-green%20%7B%20color%3A%20rgb(60%2C%20131%2C%2039)%20%7D%0A.gray%20%7B%20color%3A%20%23828282%7D%0A%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D1%84%D0%BE%D0%BD%20*%2F%0A%0A.weak-red%20%7B%20background-color%3A%20rgb(239%2C%20165%2C%20165)%20%7D%0A.light-gray%20%7B%20background-color%3A%20%23F6F6F6%20%7D%0A.input-color%20%7B%20background-color%3A%20%23F6F6F6%20%7D%0A.output-color%20%7B%20background-color%3A%20%23F7FAFC%20%7D%0A%0A%2F*%20%D0%A6%D0%B2%D0%B5%D1%82%D0%B0%3A%20%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B%20*%2F%0A%0A.red-state%20%7B%0A%20%20border-color%3A%20rgb(207%2C%2083%2C%2083)%3B%0A%20%20background-color%3A%20%20rgb(243%2C%20227%2C%20227)%3B%0A%7D",
         "source": "library"
       }
     },
