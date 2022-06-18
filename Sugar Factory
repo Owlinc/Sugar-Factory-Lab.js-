@@ -191,11 +191,11 @@
         {
           "title": "",
           "message": "before:prepare",
-          "code": "// Данные для отрисвоки графика\nif (typeof(study.parameters.graph_data) == \"undefined\") {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n}\n\n// Изначалное значение уровня производства\nif (isNaN(study.parameters.production_value)) {\n  study.parameters.production_value = 6000\n}"
+          "code": "// Метаданные\nstudy.parameters.stage = \"Серия с напарником\"\n\n// Данные для отрисвоки графика\nif (typeof(study.parameters.graph_data) == \"undefined\") {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n}\n\n// Изначалное значение уровня производства\nif (isNaN(study.parameters.production_value)) {\n  study.parameters.production_value = 6000\n}"
         }
       ],
       "title": "screen_attempt_preliminarily",
-      "_tab": "Content",
+      "_tab": "Scripts",
       "timeout": "",
       "_template": false
     },
@@ -433,7 +433,7 @@
       "items": [
         {
           "type": "text",
-          "content": "<span style=\"text-align: center; font-size: 28px\"><strong> Обучающий этап (2/2) </strong></span>\n<p style=\"font-size: 2px\">&nbsp;</p>\n\n<p> У вас будет 20 попыток, чтобы прийти к ожидаемому уровню производства, а после поддерживать его в целевом диапазоне до конца серии. После каждого выбора количества рабочих будет необходимо указать уверенность в этом выборе. </p>\n\n<p style = \"font-weight: 500\"> \n    ВАЖНО! Уровень уверенности в выборе никак не влияет на производительность фабрики. \n</p>"
+          "content": "<span style=\"text-align: center; font-size: 28px\"><strong> Обучающий этап (2/2) </strong></span>\n<p style=\"font-size: 2px\">&nbsp;</p>\n\n<p> В серии у вас будет 20 попыток, чтобы прийти к ожидаемому уровню производства, а после поддерживать его в целевом диапазоне до конца серии. После каждого выбора количества рабочих будет необходимо указать уверенность в этом выборе. </p>\n\n<p style = \"font-weight: 500\"> \n    ВАЖНО! Уровень уверенности в выборе никак не влияет на производительность фабрики. \n</p>"
         }
       ],
       "scrollTop": true,
@@ -678,7 +678,8 @@
         }
       ],
       "title": "page_interaction_assess_1",
-      "width": "l"
+      "width": "l",
+      "_tab": "Content"
     },
     "18": {
       "id": "18",
@@ -823,7 +824,7 @@
       "children": [
         "19",
         "11",
-        "33"
+        "31"
       ],
       "files": [],
       "responses": [
@@ -928,11 +929,198 @@
       "title": "STAGE_WITH_PARTNER",
       "_collapsed": true
     },
-    "28": {
-      "id": "28",
+    "31": {
+      "id": "31",
       "type": "lab.flow.Loop",
       "children": [
-        "29"
+        "32"
+      ],
+      "templateParameters": {
+        "columns": [
+          {
+            "name": "stage",
+            "type": "string"
+          }
+        ],
+        "rows": [
+          [
+            "Обучающая серия №1"
+          ],
+          [
+            "Обучающая серия №2"
+          ]
+        ]
+      },
+      "sample": {
+        "mode": "sequential"
+      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "loop_series",
+      "_collapsed": true,
+      "_tab": "Content"
+    },
+    "32": {
+      "id": "32",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "35",
+        "36",
+        "46"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "sequence_series_components",
+      "_collapsed": false,
+      "_tab": "Behavior"
+    },
+    "34": {
+      "id": "34",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "title": "",
+          "content": "<span style=\"text-align: center; font-size: 28px\"><strong> Сведения об участнике</strong></span>\n<p style=\"font-size: 2px\">&nbsp;</p>\n\nПожалуйста, укажите ваши <strong>возраст </strong>и&nbsp;<strong>пол</strong>. <br> Все данные анонимизируются.\n\n<p style=\"font-size: 10px\">&nbsp;</p>"
+        },
+        {
+          "required": true,
+          "type": "input",
+          "label": "<span style = \"font-size: 22px; font-weight: 500\"> Возраст </span> ",
+          "help": "",
+          "attributes": {
+            "type": "number",
+            "min": "18",
+            "max": "26"
+          },
+          "name": "subject_age"
+        },
+        {
+          "required": true,
+          "type": "radio",
+          "label": "<span style = \"font-size: 22px; font-weight: 500\"> Пол </span> ",
+          "options": [
+            {
+              "label": "Женский",
+              "coding": "f"
+            },
+            {
+              "label": "Мужской",
+              "coding": "m"
+            }
+          ],
+          "name": "subject_sex"
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "Далее →",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "page_participant_form",
+      "_tab": "Content",
+      "skip": false,
+      "width": "m"
+    },
+    "35": {
+      "id": "35",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "Enter clicked",
+          "event": "keypress",
+          "target": "",
+          "filter": "Enter"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "var stage = document.getElementById(\"stage-title\")\nstage.firstChild.nodeValue = this.parameters.stage"
+        }
+      ],
+      "title": "screen_set_presentation",
+      "content": "<main class = \"light-gray main-layout\">\n    <div class = \"present-card text-lefted\"> \n        <div class = \"gray\"> Текущй этап </div>\n        <div \n          id = \"stage-title\" \n          class = \"medium_weight twenty-eight_px\"> \n              Обучающая серия №1 \n        </div>\n    </div>\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Вы перейдёте к заданию через несколько секунд\n</footer>",
+      "_tab": "Scripts",
+      "timeout": "4000"
+    },
+    "36": {
+      "id": "36",
+      "type": "lab.flow.Loop",
+      "children": [
+        "43"
       ],
       "templateParameters": {
         "columns": [
@@ -1031,146 +1219,8 @@
         }
       ],
       "title": "loop_set",
-      "_tab": "Scripts",
-      "_collapsed": true
-    },
-    "29": {
-      "id": "29",
-      "type": "lab.flow.Sequence",
-      "children": [
-        "38",
-        "39"
-      ],
-      "files": [],
-      "responses": [
-        {
-          "label": "",
-          "event": "",
-          "target": "",
-          "filter": ""
-        }
-      ],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [
-        {
-          "title": "",
-          "message": "",
-          "code": ""
-        }
-      ],
-      "title": "sequence_set_components",
-      "_tab": "Scripts",
-      "_collapsed": false
-    },
-    "33": {
-      "id": "33",
-      "type": "lab.flow.Sequence",
-      "children": [
-        "40",
-        "28",
-        "41"
-      ],
-      "files": [],
-      "responses": [
-        {
-          "label": "",
-          "event": "",
-          "target": "",
-          "filter": ""
-        }
-      ],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [
-        {
-          "title": "",
-          "message": "",
-          "code": ""
-        }
-      ],
-      "title": "sequence_series",
-      "_collapsed": true,
-      "_tab": "Content"
-    },
-    "34": {
-      "id": "34",
-      "type": "lab.html.Page",
-      "items": [
-        {
-          "type": "text",
-          "title": "",
-          "content": "<span style=\"text-align: center; font-size: 28px\"><strong> Сведения об участнике</strong></span>\n<p style=\"font-size: 2px\">&nbsp;</p>\n\nПожалуйста, укажите ваши <strong>возраст </strong>и&nbsp;<strong>пол</strong>. <br> Все данные анонимизируются.\n\n<p style=\"font-size: 10px\">&nbsp;</p>"
-        },
-        {
-          "required": true,
-          "type": "input",
-          "label": "<span style = \"font-size: 22px; font-weight: 500\"> Возраст </span> ",
-          "help": "",
-          "attributes": {
-            "type": "number",
-            "min": "18",
-            "max": "26"
-          },
-          "name": "subject_age"
-        },
-        {
-          "required": true,
-          "type": "radio",
-          "label": "<span style = \"font-size: 22px; font-weight: 500\"> Пол </span> ",
-          "options": [
-            {
-              "label": "Женский",
-              "coding": "f"
-            },
-            {
-              "label": "Мужской",
-              "coding": "m"
-            }
-          ],
-          "name": "subject_sex"
-        }
-      ],
-      "scrollTop": true,
-      "submitButtonText": "Далее →",
-      "submitButtonPosition": "right",
-      "files": [],
-      "responses": [
-        {
-          "label": "",
-          "event": "",
-          "target": "",
-          "filter": ""
-        }
-      ],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [
-        {
-          "title": "",
-          "message": "",
-          "code": ""
-        }
-      ],
-      "title": "page_participant_form",
       "_tab": "Content",
-      "skip": false,
-      "width": "m"
+      "_collapsed": true
     },
     "37": {
       "id": "37",
@@ -1196,125 +1246,6 @@
       "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
       "_tab": "Content",
       "timeout": "500"
-    },
-    "38": {
-      "id": "38",
-      "type": "lab.html.Form",
-      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    ${this.parameters.step}/20 шаг серии\n</header>\n\n<main class=\"main-layout\">\n<!-- Элементы вывода -->\n<div class = \"horizontal-section\">\n\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div id = \"info-section-col\">\n    <!-- Уровень производства --> \n    <div id = \"prod-level\" class = \"card output-color text-lefted\">\n      <div id = \"prod-level-headline\" class = \"headline\">Уровень производства</div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\">Текущий уровень:</span> \n        <span id = \"production_value\"> 6 000 (+2 000 до цели) </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Цель:</span> \n        8 000 – 10 000\n      </div>\n    </div>\n\n  </div>\n</div>\n\n\n<!-- Элементы ввода --> \n<div class = \"horizontal-section\">\n  <!-- Выбор количества рабочих (тут только часть, логика изменения в Scripts) --> \n  <div id = \"workers-num-block\" class = \"card input-color vertical-centered\">\n    <p class = \"headline\"> Выберите количество рабочих </p>\n    <div class = \"horizontal-centered\">\n        <button id = \"-\" class = \"work-num-element button nineteen_px\">-</button>\n        <span id=\"amount_of_workers\" class=\"work-num-element twenty-four_px\"> 600 </span>\n        <button id=\"+\" class=\"work-num-element button nineteen_px\">+</button>\n    </div>\n  </div>\n\n\n<!-- Уверенность --> \n  <div id = \"conf-block\" class = \"card input-color\">\n\n    <div \n        id = \"conf-headline\" \n        class = \"headline text-centered\"> Оцените уверенность \n    </div>\n\n    <div id = \"confidencer\">\n      <form id = \"confidence_form\" class = \"fifthteen_px\">\n\n        <ul class = 'likert'>\n          <li>\n            <input \n              id = \"conf_1\"\n              type = \"radio\" \n              name =\"confidence\" \n              value=\"1\" \n              required>\n            <label> Не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_2\"\n              type = \"radio\" \n              name = \"confidence\" \n              value=\"2\" \n              required>\n            <label> Скорее не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_3\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"3\" \n              required>\n            <label> Скорее уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_4\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"4\" \n              required>\n            <label> Уверен </label>\n          </li>\n        </ul>\n        \n      </form>\n    </div> \n  </div>\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы сохранить ответ и перейти дальше\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n\n\n\n",
-      "scrollTop": true,
-      "files": [],
-      "responses": [],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [
-        {
-          "title": "",
-          "message": "run",
-          "code": "// Синхронизация кол-ва рабочих\nnumber_of_workers = study.parameters.number_of_workers\nvar amount_of_workers = document.getElementById(\"amount_of_workers\");\n\nif (isNaN(number_of_workers)) {\n  amount_of_workers.firstChild.nodeValue = 600\n} else {\n  amount_of_workers.firstChild.nodeValue = number_of_workers\n}\n\n\n// Точки-разделители для тысяч\nfunction number_with_dot(x) {\n    return x.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \" \");\n}\n\n// Синхронизация уровня производства\nproduction_value = study.parameters.production_value\nvar production_label = document.getElementById(\"production_value\")\n\nif (production_value >= 8000 && production_value <= 10000) {\n    var prod_value = \n        number_with_dot(production_value) + \" (отвечает цели)\"\n    production_label.classList.add(\"dark-green\") \n\n} else {\n    var to_target = \n        production_value > 10000 ? 10000 - production_value : 8000 - production_value\n    var prod_value = \n        number_with_dot(production_value) + \n        \" (\" + \n        number_with_dot(to_target) + \n        \" до цели)\"\n    production_label.classList.add(\"dark-yellow\")  \n}\n\nproduction_label.firstChild.nodeValue = prod_value\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8 000 – 10 000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 13000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\nstudy.parameters.spec = spec\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n})\n\n\n// Функция, срабатывающая при достижении максимального/минимального количества рабочих\nfunction showLimit() {\n  amount_of_workers.classList.add(\"workers_amount_animation\")\n  setTimeout(function() { amount_of_workers.classList.remove(\"workers_amount_animation\") }, 600);\n}\n\n// Функция, для изменения значения поля с количеством рабочих\nfunction myFunction(plus) {\n  var amount_of_workers = document.getElementById(\"amount_of_workers\");\n  var number = parseInt(amount_of_workers.innerHTML);\n\n  if (plus === true ) {\n    if (number < 1200) {\n      number = number + 100\n    } else { \n        showLimit()\n     }} \n    \n  else {\n    if (number > 100) {\n      number = number - 100} else { \n        showLimit()\n    }}\n  \n  amount_of_workers.firstChild.nodeValue = number;\n}\n\n// Привязка функции к нажатию на кнопку \"+\"\nconst pl = document.getElementById(\"+\");\npl.addEventListener(\"click\", () => { myFunction(plus = true); });\n\n\n// Привязка функции к нажатию на кнопку \"-\"\nconst ml = document.getElementById(\"-\");\nml.addEventListener(\"click\", () => { myFunction(plus = false); });\n\n\n// Привязка сабмита к enter\nenterPress = function(event) {\n    if (event.code === 'Enter') {\n      var submit_button = document.getElementById(\"submit_button\");\n      submit_button.click()\n  }\n}\n\ndocument.addEventListener('keypress', enterPress, true)\n\n\n\n\n"
-        },
-        {
-          "title": "",
-          "message": "end",
-          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nstudy.parameters.number_of_workers = \n  parseInt(amount_of_workers.innerHTML)\n\n\n// Рандомайзер\nfunction randomInteger(min, max) {\n  let rand = min + Math.random() * (max + 1 - min);\n  return Math.floor(rand)}\n\n// Подсчет производительности следующего шага\nrandom_value = randomInteger(0, 1)\nstudy.parameters.production_value = ((2*study.parameters.number_of_workers/100 \n  - study.parameters.production_value/1000\n  + random_value)\n  * 1000)\n\n// Приведение производительности к границам 1000:12000\nif (study.parameters.production_value > 12000) {\n  study.parameters.production_value = 12000\n} else if (study.parameters.production_value < 1000) {\n  study.parameters.production_value = 1000\n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Обнуление фабрики перед новой серией\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
-        },
-        {
-          "title": "",
-          "message": "before:prepare",
-          "code": "// Метаданные\nstudy.parameters.stage = \"Тренировочная серия\"\n\n// Данные для отрисовки графика\nif (typeof(study.parameters.graph_data) == \"undefined\") {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n}\n\n// Изначалное значение уровня производства\nif (isNaN(study.parameters.production_value)) {\n  study.parameters.production_value = 6000\n}"
-        }
-      ],
-      "title": "screen_attempt",
-      "_tab": "Content"
-    },
-    "39": {
-      "id": "39",
-      "type": "lab.html.Screen",
-      "files": [],
-      "responses": [
-        {
-          "label": "",
-          "event": "",
-          "target": "",
-          "filter": ""
-        }
-      ],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [],
-      "title": "screen_loader",
-      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
-      "_tab": "Scripts",
-      "timeout": "500"
-    },
-    "40": {
-      "id": "40",
-      "type": "lab.html.Screen",
-      "files": [],
-      "responses": [
-        {
-          "label": "Enter clicked",
-          "event": "keypress",
-          "target": "",
-          "filter": "Enter"
-        }
-      ],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [],
-      "title": "screen_set_presentation",
-      "content": "<main class = \"light-gray main-layout\">\n    <div class = \"present-card text-lefted\"> \n        <div class = \"gray\"> Текущй этап </div>\n        <div \n          id = \"stage-title\" \n          class = \"medium_weight twenty-eight_px\"> \n              Обучающая серия\n        </div>\n    </div>\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Вы перейдёте к заданию через несколько секунд\n</footer>",
-      "_tab": "Scripts",
-      "timeout": "4000"
-    },
-    "41": {
-      "id": "41",
-      "type": "lab.html.Form",
-      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    Финал серии\n</header>\n\n\n<main class=\"main-layout\">\n  \n<!-- Элементы вывода -->\n<div class = \"horizontal-section\">\n\n    <!-- График (тут только часть, остальное в Scripts) --> \n    <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n      <div id = \"chart\"></div>\n    </div>\n\n  <!-- Уровень производства + Совет -->\n  <div id = \"advice-section-col\">\n\n    <!-- Уровень производства --> \n    <div id = \"prod-level-final\" class = \"card output-color text-lefted\">\n      \n      <div id = \"prod-level-headline\" class = \"headline\">\n        Уровень производства\n      </div>\n\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\"> Финальный уровень: </span> \n        <span id = \"production_value\"> 6 000 (+2 000 до цели) </span>\n      </div>\n\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Цель:</span> \n        8 000 – 10 000\n      </div>\n\n    </div>\n\n    <!-- Совет --> \n    <div id = \"advice-card\" class = \"card text-lefted\">\n      \n      <div id = \"prod-level-headline\" class = \"headline\">\n        Совет\n      </div>\n\n      <div id = \"advice-text\" class = \"fifthteen_px\"> \n        Наведя курсор на точку графика, можно изучить, то как выбор количества рабочих отражается на производительности\n      </div>\n\n    </div>\n  </div>\n\n</div>\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Серия закончена. Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти дальше\n</footer>\n\n",
-      "scrollTop": true,
-      "files": [],
-      "responses": [
-        {
-          "event": "keypress",
-          "filter": "Enter"
-        }
-      ],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [
-        {
-          "title": "",
-          "message": "run",
-          "code": "// Калькуляция финальных резултатов\nstudy.parameters.result = 0\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => {\n  if \n    (item.Уровень_производства >= 8000 && \n    item.Уровень_производства <= 10000) {\n        study.parameters.result = ++study.parameters.result}});\n\n\n// Точки-разделители для тысяч\nfunction number_with_dot(x) {\n    return x.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \" \");\n}\n\n// Синхронизация уровня производства\nproduction_value = study.parameters.production_value\nvar production_label = document.getElementById(\"production_value\")\n\nif (production_value >= 8000 && production_value <= 10000) {\n    var prod_value = \n        number_with_dot(production_value) + \" (отвечает цели)\"\n    production_label.classList.add(\"dark-green\") \n\n} else {\n    var to_target = \n        production_value > 10000 ? 10000 - production_value : 8000 - production_value\n    var prod_value = \n        number_with_dot(production_value) + \n        \" (\" + \n        number_with_dot(to_target) + \n        \" до цели)\"\n    production_label.classList.add(\"dark-yellow\")  \n}\n\nproduction_label.firstChild.nodeValue = prod_value\n\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 165,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8 000 – 10 000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 13000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n});\n\n"
-        },
-        {
-          "title": "",
-          "message": "end",
-          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Продуктивность последнего этапа\nstudy.parameters.last_stage_productivity = \n    study.parameters.result / \n    (study.parameters.graph_data[\"values\"].length - 1)\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n  study.parameters.number_of_workers = 600\n}\n\nstudy.parameters.number_of_workers = 600\n\n\n// Данные для отрисовки графика продуктивности\nif (typeof(study.parameters.prod_graph_data) == \"undefined\") {\n  var step = 1\n  study.parameters.prod_graph_data = { \"values\": [] }\n} else {\n  var step = study.parameters.prod_graph_data[\"values\"].length + 1\n}\n\nstudy.parameters.prod_graph_data[\"values\"].push({\n  'Этап': \"Тренировочная серия\", \n  'Продуктивность': study.parameters.last_stage_productivity, \n  'Номер серии': step})\n\n"
-        }
-      ],
-      "title": "form_results",
-      "_tab": "Content",
-      "timeout": ""
     },
     "42": {
       "id": "42",
@@ -1353,6 +1284,134 @@
       "_tab": "Scripts",
       "skipCondition": "",
       "skip": false
+    },
+    "43": {
+      "id": "43",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "44",
+        "45"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "sequence_set_components",
+      "_tab": "Content",
+      "_collapsed": false
+    },
+    "44": {
+      "id": "44",
+      "type": "lab.html.Form",
+      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    ${this.parameters.step}/20 шаг серии\n</header>\n\n<main class=\"main-layout\">\n<!-- Элементы вывода -->\n<div class = \"horizontal-section\">\n\n\n  <!-- График (тут только часть, остальное в Scripts) --> \n  <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n    <div id = \"chart\"></div>\n  </div>\n\n\n  <!-- Уровень производства + Предварительный выбор -->\n  <div id = \"info-section-col\">\n    <!-- Уровень производства --> \n    <div id \"prod-level\" class = \"card output-color text-lefted\">\n      <div id = \"prod-level-headline\" class = \"headline\">Уровень производства</div>\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\">Текущий уровень:</span> \n        <span id = \"production_value\"> 6 000 (+2 000 до цели) </span>\n      </div>\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Цель:</span> \n        8 000 – 10 000\n      </div>\n    </div>\n\n  </div>\n</div>\n\n\n<!-- Элементы ввода --> \n<div class = \"horizontal-section\">\n  <!-- Выбор количества рабочих (тут только часть, логика изменения в Scripts) --> \n  <div id = \"workers-num-block\" class = \"card input-color vertical-centered\">\n    <p class = \"headline\"> Выберите количество рабочих </p>\n    <div class = \"horizontal-centered\">\n        <button id = \"-\" class = \"work-num-element button nineteen_px\">-</button>\n        <span id=\"amount_of_workers\" class=\"work-num-element twenty-four_px\"> 600 </span>\n        <button id=\"+\" class=\"work-num-element button nineteen_px\">+</button>\n    </div>\n  </div>\n\n\n<!-- Уверенность --> \n  <div id = \"conf-block\" class = \"card input-color\">\n\n    <div \n        id = \"conf-headline\" \n        class = \"headline text-centered\"> Оцените уверенность \n    </div>\n\n    <div id = \"confidencer\">\n      <form id = \"confidence_form\" class = \"fifthteen_px\">\n\n        <ul class = 'likert'>\n          <li>\n            <input \n              id = \"conf_1\"\n              type = \"radio\" \n              name =\"confidence\" \n              value=\"1\" \n              required>\n            <label> Не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_2\"\n              type = \"radio\" \n              name = \"confidence\" \n              value=\"2\" \n              required>\n            <label> Скорее не уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_3\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"3\" \n              required>\n            <label> Скорее уверен </label>\n          </li>\n          <li>\n            <input \n              id = \"conf_4\"\n              type = \"radio\" \n              name = \"confidence\" \n              value = \"4\" \n              required>\n            <label> Уверен </label>\n          </li>\n        </ul>\n        \n      </form>\n    </div> \n  </div>\n\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы сохранить ответ и перейти дальше\n\n    <!-- Кнопка для сабмита --> \n    <button \n        id = \"submit_button\" \n        style = \"display: none\" \n        type = \"submit\" \n        form = \"confidence_form\">\n    </button>\n    \n</footer>\n\n\n\n\n",
+      "scrollTop": true,
+      "files": [],
+      "responses": [],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// Синхронизация кол-ва рабочих\nnumber_of_workers = study.parameters.number_of_workers\nvar amount_of_workers = document.getElementById(\"amount_of_workers\");\n\nif (isNaN(number_of_workers)) {\n  amount_of_workers.firstChild.nodeValue = 600\n} else {\n  amount_of_workers.firstChild.nodeValue = number_of_workers\n}\n\n\n// Точки-разделители для тысяч\nfunction number_with_dot(x) {\n    return x.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \" \");\n}\n\n// Синхронизация уровня производства\nproduction_value = study.parameters.production_value\nvar production_label = document.getElementById(\"production_value\")\n\nif (production_value >= 8000 && production_value <= 10000) {\n    var prod_value = \n        number_with_dot(production_value) + \" (отвечает цели)\"\n    production_label.classList.add(\"dark-green\") \n\n} else {\n    var to_target = \n        production_value > 10000 ? 10000 - production_value : 8000 - production_value\n    var prod_value = \n        number_with_dot(production_value) + \n        \" (\" + \n        number_with_dot(to_target) + \n        \" до цели)\"\n    production_label.classList.add(\"dark-yellow\")  \n}\n\nproduction_label.firstChild.nodeValue = prod_value\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 140,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8 000 – 10 000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 13000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\nstudy.parameters.spec = spec\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n})\n\n\n// Функция, срабатывающая при достижении максимального/минимального количества рабочих\nfunction showLimit() {\n  amount_of_workers.classList.add(\"workers_amount_animation\")\n  setTimeout(function() { amount_of_workers.classList.remove(\"workers_amount_animation\") }, 600);\n}\n\n// Функция, для изменения значения поля с количеством рабочих\nfunction myFunction(plus) {\n  var amount_of_workers = document.getElementById(\"amount_of_workers\");\n  var number = parseInt(amount_of_workers.innerHTML);\n\n  if (plus === true ) {\n    if (number < 1200) {\n      number = number + 100\n    } else { \n        showLimit()\n     }} \n    \n  else {\n    if (number > 100) {\n      number = number - 100} else { \n        showLimit()\n    }}\n  \n  amount_of_workers.firstChild.nodeValue = number;\n}\n\n// Привязка функции к нажатию на кнопку \"+\"\nconst pl = document.getElementById(\"+\");\npl.addEventListener(\"click\", () => { myFunction(plus = true); });\n\n\n// Привязка функции к нажатию на кнопку \"-\"\nconst ml = document.getElementById(\"-\");\nml.addEventListener(\"click\", () => { myFunction(plus = false); });\n\n\n// Привязка сабмита к enter\nenterPress = function(event) {\n    if (event.code === 'Enter') {\n      var submit_button = document.getElementById(\"submit_button\");\n      submit_button.click()\n  }\n}\n\ndocument.addEventListener('keypress', enterPress, true)\n\n\n\n\n"
+        },
+        {
+          "title": "",
+          "message": "end",
+          "code": "// Очистка слушателя enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Cохранение выбора кол-ва работников\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\nstudy.parameters.number_of_workers = \n  parseInt(amount_of_workers.innerHTML)\n\n\n// Рандомайзер\nfunction randomInteger(min, max) {\n  let rand = min + Math.random() * (max + 1 - min);\n  return Math.floor(rand)}\n\n// Подсчет производительности следующего шага\nrandom_value = randomInteger(0, 1)\nstudy.parameters.production_value = ((2*study.parameters.number_of_workers/100 \n  - study.parameters.production_value/1000\n  + random_value)\n  * 1000)\n\n// Приведение производительности к границам 1000:12000\nif (study.parameters.production_value > 12000) {\n  study.parameters.production_value = 12000\n} else if (study.parameters.production_value < 1000) {\n  study.parameters.production_value = 1000\n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Обнуление фабрики перед новой серией\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
+        },
+        {
+          "title": "",
+          "message": "before:prepare",
+          "code": "// Данные для отрисовки графика\nif (typeof(study.parameters.graph_data) == \"undefined\") {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n}\n\n// Изначалное значение уровня производства\nif (isNaN(study.parameters.production_value)) {\n  study.parameters.production_value = 6000\n}"
+        }
+      ],
+      "title": "screen_attempt",
+      "_tab": "Content"
+    },
+    "45": {
+      "id": "45",
+      "type": "lab.html.Screen",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
+      "title": "screen_loader",
+      "content": "<main class = \"content-vertical-center content-horizontal-center\">\n  <div class=\"loader\"></div>\n</main>",
+      "_tab": "Scripts",
+      "timeout": "500"
+    },
+    "46": {
+      "id": "46",
+      "type": "lab.html.Form",
+      "content": "<!-- Шапка --> \n<header class=\"header-footer-style\">\n    Финал серии\n</header>\n\n\n<main class=\"main-layout\">\n  \n<!-- Элементы вывода -->\n<div class = \"horizontal-section\">\n\n    <!-- График (тут только часть, остальное в Scripts) --> \n    <div id = \"chart-card\" class=\"card output-color horizontal-centered\">\n      <div id = \"chart\"></div>\n    </div>\n\n  <!-- Уровень производства + Совет -->\n  <div id = \"advice-section-col\">\n\n    <!-- Уровень производства --> \n    <div id = \"prod-level-final\" class = \"card output-color text-lefted\">\n      \n      <div id = \"prod-level-headline\" class = \"headline\">\n        Уровень производства\n      </div>\n\n      <div class = \"fifthteen_px\"\"> \n        <span class = \"medium_weight\"> Финальный уровень: </span> \n        <span id = \"production_value\"> 6 000 (+2 000 до цели) </span>\n      </div>\n\n      <div id = \"target-level-headline\" class = \"fifthteen_px text-lefted\"> \n        <span class = \"medium_weight\"> Цель:</span> \n        8 000 – 10 000\n      </div>\n\n    </div>\n\n    <!-- Совет --> \n    <div id = \"advice-card\" class = \"card text-lefted\">\n      \n      <div id = \"prod-level-headline\" class = \"headline\">\n        Совет\n      </div>\n\n      <div id = \"advice-text\" class = \"fifthteen_px\"> \n        Наведя курсор на точку графика, можно изучить, то как выбор количества рабочих отражается на производительности\n      </div>\n\n    </div>\n  </div>\n\n</div>\n</main>\n\n\n<!-- Чердак --> \n<footer class=\"header-footer-style\">\n  Серия закончена. Нажмите <kbd class=\"fifthteen_px\">enter</kbd>, чтобы перейти дальше\n</footer>\n\n",
+      "scrollTop": true,
+      "files": [],
+      "responses": [
+        {
+          "event": "keypress",
+          "filter": "Enter"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "run",
+          "code": "// Делаем так, чтобы совет показывался только на первой серии\nlet advice_card = document.getElementById('advice-card')\nif (this.parameters.stage != \"Обучающая серия №1\") { \n  advice_card.style.visibility = \"hidden\"\n}\n\n\n// Калькуляция финальных резултатов\nstudy.parameters.result = 0\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => {\n  if \n    (item.Уровень_производства >= 8000 && \n    item.Уровень_производства <= 10000) {\n        study.parameters.result = ++study.parameters.result}});\n\n\n// Точки-разделители для тысяч\nfunction number_with_dot(x) {\n    return x.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \" \");\n}\n\n// Синхронизация уровня производства\nproduction_value = study.parameters.production_value\nvar production_label = document.getElementById(\"production_value\")\n\nif (production_value >= 8000 && production_value <= 10000) {\n    var prod_value = \n        number_with_dot(production_value) + \" (отвечает цели)\"\n    production_label.classList.add(\"dark-green\") \n\n} else {\n    var to_target = \n        production_value > 10000 ? 10000 - production_value : 8000 - production_value\n    var prod_value = \n        number_with_dot(production_value) + \n        \" (\" + \n        number_with_dot(to_target) + \n        \" до цели)\"\n    production_label.classList.add(\"dark-yellow\")  \n}\n\nproduction_label.firstChild.nodeValue = prod_value\n\n\n// Данные для графика\nvar graph_data = study.parameters.graph_data\n\n// Конфигурация графика\nvar spec = {\n  $schema: 'https://vega.github.io/schema/vega-lite/v3.json',\n  data: graph_data,\n  transform: [\n    {'calculate': '7940', \"as\": \"downline\"}, \n    {'calculate': '9890', \"as\": \"upline\"}],\n  zero_title: 2000,\n  width: 400,\n  height: 165,\n  title: {text: 'Производственный график', fontSize: 16, dy: -12},\n  layer: [\n\n   // Прямоугольник, выделяющий целевой уровень производства         \n   {mark: \"rect\",\n    encoding: {\n        \"x\":{ \"value\": 1.5 },\n        \"x2\":{ \"value\": 399.5 },\n        \"y\":{ \"field\": \"upline\" },\n        \"y2\":{ \"field\": \"downline\" } ,\n        \"fill\":{ \"value\": \"#E7F2E7\" },\n        \"stroke\":{ \"value\": \"#E7F2E7\" },\n        \"strokeWidth\":{ \"value\": 1 },\n        \"tooltip\": \n          {\"value\": \"Цель (8 000 – 10 000)\"}}}, \n\n   // Линия, обозначающая нижнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"downline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n\n   // Линия, обозначающая верхнюю границу целевого уровня производства\n   {mark: \"rule\",\n    labels: false,\n    encoding: {\n        y: { \"field\": \"upline\", title: \"Уровень производства\"},\n        size: { \"value\": 1.5 },\n        tooltip: { \"value\": null },\n        color: { \"value\": \"green\" }}},\n      \n   // График изменения уровня производства     \n   {mark: {\"type\": \"line\", \"point\": {\"size\": 60}},\n    encoding: {\n      x: {\n        field: 'Шаг', \n        type: 'quantitative', \n        scale: {domain: [0, 20]},\n        axis: {titleFontSize: 14, labelFontSize: 12, titlePadding: 12}},\n      y: {\n        field: 'Уровень_производства', \n        type: 'quantitative', \n        scale: {domain: [0, 13000]},\n        axis: {\n          titleFontSize: 14, \n          labelFontSize: 12,  \n          titlePadding: 12,    \n          zindex: 0}},\n        color: {\n    \"condition\": [\n       { \"test\": \n              \"datum['Уровень_производства'] > 7999 && datum['Уровень_производства'] < 10001\", \n          \"value\": \"#3C8327\"},\n        {\"test\": \n              \"datum['Шаг'] == 0\", \n          \"value\": \"gray\"}],\n        \"value\": \"#DC8A0E\"},\n\n      tooltip: [{\n        \"field\": \"Сделанный выбор\", \n        \"type\": \"quantitative\",\n        \"title\": \"Выбор\"}]}}]\n};\n\n\n// Построение графика\nvegaEmbed('#chart', spec, {\"actions\": false}).then(function(res) {\n  res.view.change('table', changeSet).run();\n});\n\n"
+        },
+        {
+          "title": "",
+          "message": "end",
+          "code": "// Очистка графика (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n\n// Продуктивность последнего этапа\nstudy.parameters.last_stage_productivity = \n    study.parameters.result / \n    (study.parameters.graph_data[\"values\"].length - 1)\n\n\n// Подсчет глобальных результатов\nif (typeof(study.parameters.global_results) == \"undefined\") {\n  study.parameters.global_results = 0\n  study.parameters.global_attempts = 0\n}\n\n\n// Общее количество соответсвий\nstudy.parameters.global_results += study.parameters.result\n\n// Общее количество попыток\nstudy.parameters.global_attempts +=\n    study.parameters.graph_data[\"values\"].length - 1\n\n// Общая продуктивность\nstudy.parameters.global_productivity = \n    study.parameters.global_results / study.parameters.global_attempts\n\n\n// Обнуление фабрики перед новой серии\nif (this.parameters.last_step) {\n  study.parameters.graph_data = \n      {\"values\": \n          [{'Сделанный выбор': 600, \n          'Уровень_производства': 6000, \n          'Шаг': 0,\n          'Последний': 1}]}\n  study.parameters.production_value = 6000\n  study.parameters.number_of_workers = 600\n}\n\nstudy.parameters.number_of_workers = 600\n\n\n// Данные для отрисовки графика продуктивности\nif (typeof(study.parameters.prod_graph_data) == \"undefined\") {\n  var step = 1\n  study.parameters.prod_graph_data = { \"values\": [] }\n} else {\n  var step = study.parameters.prod_graph_data[\"values\"].length + 1\n}\n\nstudy.parameters.prod_graph_data[\"values\"].push({\n  'Этап': \"Тренировочная серия\", \n  'Продуктивность': study.parameters.last_stage_productivity, \n  'Номер серии': step})\n\n"
+        }
+      ],
+      "title": "form_results",
+      "_tab": "Scripts",
+      "timeout": ""
     },
     "53": {
       "id": "53",
@@ -1582,6 +1641,11 @@
           "title": "",
           "message": "end",
           "code": "// Очистка/обнуление зависимостей \n// Таймер\nclearInterval(timer)\n\n// Слушатель enter\ndocument.removeEventListener('keypress', enterPress, true)\n\n// График (иначе тултип остается на следующих страницах)\nlet tooltip = document.getElementById('vg-tooltip-element')\ntooltip.style.display = 'none'\n\n// CSS\nvar styleElem = document.head.appendChild(document.createElement(\"style\"));\nstyleElem.innerHTML = \"form .likert:before { background: #e0e0e0 }\";\n\n\n// Cохранение выбора кол-ва работников\nvar amount_of_workers = document.getElementById(\"amount_of_workers\")\ninput_value = parseInt(amount_of_workers.innerHTML)\nstudy.parameters.number_of_workers = input_value\nstudy.parameters.last_number_of_workers = input_value\n\n\n// Подсчет производительности следющего шага\nstudy.parameters.production_value = ((2*study.parameters.number_of_workers/100 \n  - study.parameters.production_value/1000\n  + this.parameters.random_value)\n  * 1000)\n\n// Приведение производительности к границам 1000:12000\nif (study.parameters.production_value > 12000) {\n  study.parameters.production_value = 12000\n} else if (study.parameters.production_value < 1000) {\n  study.parameters.production_value = 1000\n}\n\n\n// Конфигурация графика\nvar graph_data = study.parameters.graph_data\ngraph_data[\"values\"].forEach((item) => item.Последний = '0');\n\ngraph_data[\"values\"].push({\n   'Сделанный выбор': study.parameters.number_of_workers, \n   'Уровень_производства': study.parameters.production_value, \n   'Шаг': graph_data[\"values\"].length,\n   'Последний': 1 });\n\n\n// Индикация последнего шага для обнуления фабрики\nif (this.parameters.step == 20) {\n  study.parameters.last_step = true\n} else {\n  study.parameters.last_step = false\n}\n\n\n\n"
+        },
+        {
+          "title": "",
+          "message": "before:prepare",
+          "code": "// Метаданные\nstudy.parameters.stage = \"Серия с напарником\""
         }
       ],
       "title": "screen_attempt_final",
@@ -2294,7 +2358,7 @@
         }
       ],
       "metadata": {
-        "title": "Factory task [1.8] ",
+        "title": "Factory task [1.9] ",
         "description": "This task is stimulus material for the research in psychology. The topic: how does the format of communication (voice vs video+voice) affect epistemic trust.",
         "repository": "",
         "contributors": "Nikita Sharin (nasharin@edu.hse.ru)"
